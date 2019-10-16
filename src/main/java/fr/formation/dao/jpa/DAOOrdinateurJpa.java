@@ -1,40 +1,5 @@
 package fr.formation.dao.jpa;
 
-import java.util.List;
-
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-
-import org.springframework.core.GenericTypeResolver;
-
-
-public abstract class DAOOrdinateurJpa<T> {
-	@PersistenceContext
-	protected EntityManager em;
+public abstract class DAOOrdinateurJpa {
 	
-	protected Class<T> _Class;
-	
-	@SuppressWarnings("unchecked")
-	public DAOOrdinateurJpa() {
-		_Class = (Class<T>) GenericTypeResolver.resolveTypeArgument(getClass(), DAOOrdinateurJpa.class);
-	}	
-	
-	public List<T> findAll() {
-		return em.createQuery("select t from " + _Class.getName() + " t", _Class)
-				.getResultList();
-	}
-
-	public T findById(int id) {
-		return em.find(_Class, id);
-	}
-
-	public T save(T entity) {
-		return em.merge(entity);
-	}
-	
-	public void deleteById(int id) {
-		em.createQuery("delete from " + _Class.getName() + " where id = :id")
-			.setParameter("id", id)
-			.executeUpdate();
-	}
 }
