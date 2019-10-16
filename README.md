@@ -1,4 +1,4 @@
-# `PimpMySchool`
+# PimpMySchool
 ## Importer le projet sur votre environnement local
 >**Pour commencer, cloner le projet dans votre répertoire de travail.**
 
@@ -21,7 +21,7 @@
     
     Lancer le projet sur votre serveur Tomcat
     
-**_`Voilà! Il n'y a plus qu'à travailler ;)`_**
+**_Voilà! Il n'y a plus qu'à travailler ;)_**
 
 ## Ligne de conduite
 >**La structure du projet suit le pattern MCV**
@@ -82,4 +82,4 @@
 
     git push
 
-**_`Voilà! Vos modifs sont accessible sur le serveur git`_**
+**_Voilà! Vos modifs sont accessible sur le serveur git_**
