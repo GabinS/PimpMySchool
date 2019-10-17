@@ -83,3 +83,13 @@
     git push
 
 **_Voilà! Vos modifs sont accessible sur le serveur git_**
+
+| Dévéloppeur | Entité |
+| ----------- | ------ |
+| Emilie   | Planing |
+| Robin    | Formation |
+| Damien   | RessourceMaterielle / Disponibilite / Salle |
+| Mathieux | RessourceMaterielle / Disponibilite / Ordinateur |
+| Sofian   | RessourceMaterielle / Disponibilite / VideoProjecteur |
+| Joris    | Formateur / Techinicien / Gestionnaire / Stagiaire |
+| Gabin    | UniteEnseignement / Matiere |
