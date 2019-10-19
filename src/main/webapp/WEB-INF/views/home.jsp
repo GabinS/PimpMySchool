@@ -8,6 +8,7 @@
 		<title>${title}</title>
 	</head>
 	<body>
+		<jsp:include page="menu.jsp" />
 		<h1>${title}</h1>
 	</body>
 </html>

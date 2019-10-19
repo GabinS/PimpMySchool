@@ -9,7 +9,7 @@ import javax.transaction.Transactional;
 import org.springframework.stereotype.Repository;
 
 import fr.formation.dao.IDAOFormation;
-import fr.formation.models.Formation;
+import fr.formation.model.Formation;
 
 @Repository
 public abstract class DAOFormationJpa implements IDAOFormation{
