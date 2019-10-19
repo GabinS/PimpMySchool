@@ -12,7 +12,6 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -33,16 +32,18 @@ public class Formation {
 	// TODO Surement a modif
 	@ManyToMany
 	@JoinTable(name = "matos")
-	private List<RessourceMaterielle> matos;
 
-	@OneToMany(mappedBy = "formation")
+	private List<RessourceMaterielle> listRessourceMaterielle;
+
+	// TODO Remplir le mappedBy par le nom de la variable dans la classe Stagiaire
+	@OneToMany(mappedBy = "")
 	private List<Stagiaire> listStagiaire;
 
-	@OneToOne()
-	@JoinColumn(name = "FOR_PLANNING")
-	private Planning planningFormation;
+	// TODO Remplir le mappedBy par le nom de la variable dans la classe Planning
+	@OneToMany(mappedBy = "")
+	private List<Planning> planningFormation;
 
-	//TODO Compléter 'name' du JoinColumn
+	//TODO ComplÃ©ter 'name' du JoinColumn
 	@ManyToOne()
 	@JoinColumn(name = "")
 	private Gestionnaire gestionnaire;
@@ -92,11 +93,13 @@ public class Formation {
 	}
 	
 // --------------------------------------------------------
-	public Planning getPlanningFormation() {
+
+	public List<Planning> getPlanningFormation() {
 		return planningFormation;
 	}
 
-	public void setPlanningFormation(Planning planningFormation) {
+	public void setPlanningFormation(List<Planning> planningFormation) {
+
 		this.planningFormation = planningFormation;
 	}
 
