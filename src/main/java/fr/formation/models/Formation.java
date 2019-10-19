@@ -32,7 +32,7 @@ public class Formation {
 	// TODO Surement a modif
 	@ManyToMany
 	@JoinTable(name = "matos")
-	private List<RessourceMaterielle> matos;
+	private List<RessourceMaterielle> listRessourceMaterielle;
 
 	// TODO Remplir le mappedBy par le nom de la variable dans la classe Stagiaire
 	@OneToMany(mappedBy = "")
