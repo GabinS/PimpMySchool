@@ -1,5 +1,10 @@
 package fr.formation.dao.jpa;
 
-public abstract class DAOUniteEnseignementJpa {
+import fr.formation.dao.IDAOUniteEnseignement;
+import fr.formation.model.UniteEnseignement;
 
+public abstract class DAOUniteEnseignementJpa extends DAOJpa<UniteEnseignement> implements IDAOUniteEnseignement{
+	public DAOUniteEnseignementJpa() {
+		this._Class = UniteEnseignement.class;
+	}
 }
