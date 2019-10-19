@@ -32,6 +32,7 @@ public class Formation {
 	// TODO Surement a modif
 	@ManyToMany
 	@JoinTable(name = "matos")
+
 	private List<RessourceMaterielle> listRessourceMaterielle;
 
 	// TODO Remplir le mappedBy par le nom de la variable dans la classe Stagiaire
@@ -42,7 +43,7 @@ public class Formation {
 	@OneToMany(mappedBy = "")
 	private List<Planning> planningFormation;
 
-	//TODO Compléter 'name' du JoinColumn
+	//TODO ComplÃ©ter 'name' du JoinColumn
 	@ManyToOne()
 	@JoinColumn(name = "")
 	private Gestionnaire gestionnaire;
@@ -92,11 +93,13 @@ public class Formation {
 	}
 	
 // --------------------------------------------------------
+
 	public List<Planning> getPlanningFormation() {
 		return planningFormation;
 	}
 
 	public void setPlanningFormation(List<Planning> planningFormation) {
+
 		this.planningFormation = planningFormation;
 	}
 
