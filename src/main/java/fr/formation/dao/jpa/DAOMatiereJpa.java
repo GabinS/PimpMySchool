@@ -7,5 +7,4 @@ public abstract class DAOMatiereJpa extends DAOJpa<Matiere> implements IDAOMatie
 	public DAOMatiereJpa() {
 		this._Class = Matiere.class;
 	}
-	
 }
