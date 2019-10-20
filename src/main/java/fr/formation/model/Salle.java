@@ -8,7 +8,7 @@ import javax.persistence.Table;
 @Table(name="salle")
 public class Salle extends RessourceMaterielle {
 
-	//Fields
+	//Fields	
 	@Column(name="SAL_MAXUSER")
 	private int nbMaxUser;
 
@@ -18,7 +18,7 @@ public class Salle extends RessourceMaterielle {
 	@Column(name="SAL_CONTACT")
 	private String contactAdministratif;
 	
-	//TODO : Faire les jointures.
+	//TODO : Jointures.
 	
 	//Properties
 	public int getNbMaxUser() {return nbMaxUser;}
@@ -33,5 +33,21 @@ public class Salle extends RessourceMaterielle {
 	//Constructors
 	public Salle() {}
 	
-	//TODO : Ajouter des constructeurs
+	public Salle(int nbMaxUser) {
+		super();
+		this.nbMaxUser = nbMaxUser;
+	}
+	
+	public Salle(int nbMaxUser, String adresse) {
+		super();
+		this.nbMaxUser = nbMaxUser;
+		this.adresse = adresse;
+	}
+	
+	public Salle(int nbMaxUser, String adresse, String contactAdministratif) {
+		super();
+		this.nbMaxUser = nbMaxUser;
+		this.adresse = adresse;
+		this.contactAdministratif = contactAdministratif;
+	}
 }
