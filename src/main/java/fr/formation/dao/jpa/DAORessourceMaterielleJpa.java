@@ -1,5 +1,8 @@
 package fr.formation.dao.jpa;
 
-public abstract class DAORessourceMaterielleJpa {
+import fr.formation.dao.IDAORessourceMaterielle;
 
+public abstract class DAORessourceMaterielleJpa implements IDAORessourceMaterielle {
+	
+	//TODO : completer
 }
