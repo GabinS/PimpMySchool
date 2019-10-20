@@ -1,5 +1,7 @@
 package fr.formation.dao;
 
-public interface IDAORessourceMaterielle{
+import fr.formation.model.RessourceMaterielle;
 
+public interface IDAORessourceMaterielle extends IDAO<RessourceMaterielle>{
+	
 }
