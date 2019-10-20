@@ -29,6 +29,7 @@
 >**La syntaxe générale à utiliser :**
 - `Classe`
 - `variableDeClass`
+- `listVariableDeClass` (Pour les liasons n\*\*n)
 - `Fonction`
 - `variableDeFonction`
 - `package`
@@ -93,3 +94,34 @@
 | Sofian   | RessourceMaterielle / Disponibilite / VideoProjecteur |
 | Joris    | Formateur / Techinicien / Gestionnaire / Stagiaire |
 | Gabin    | UniteEnseignement / Matiere |
+
+## Les Pages
+
+- Menu
+    - Déconnexion
+    - Mes informations
+    - Ressource Matérielle
+    - Planning
+    - Formation (unité d'enseignement)
+- Home
+    - planing journée actuel
+    - Alerte ressource matérielle (technicien)
+- Inscription
+- Connexion
+- Mes informations
+    - CRUD
+    - Disponibilités
+- Ressource Matérielle
+    - Disponibilités
+    - Affectation planning
+    - CRUD
+- Planning
+    - Affectation des cours / formateur
+    - Affectation du matérielle
+    - Navigation du planning
+    - Alerte
+- Formation
+    - CRUD Formation
+    - CRUD Unité d'enseignement
+    - CRUD Matiere
+    - Lien vers le planing d'une formation

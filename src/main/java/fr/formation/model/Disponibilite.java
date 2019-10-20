@@ -1,4 +1,4 @@
-package fr.formation.models;
+package fr.formation.model;
 
 public class Disponibilite {
 

@@ -1,5 +1,7 @@
 package fr.formation.dao;
 
-public interface IDAOMatiere{
+import fr.formation.model.Matiere;
+
+public interface IDAOMatiere extends IDAO<Matiere>{
 	
 }

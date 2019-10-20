@@ -4,7 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import fr.formation.models.Formation;
+import fr.formation.model.Formation;
 
 @Controller
 public class FormationController {

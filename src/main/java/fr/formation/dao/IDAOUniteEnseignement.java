@@ -1,5 +1,7 @@
 package fr.formation.dao;
 
-public interface IDAOUniteEnseignement{
+import fr.formation.model.UniteEnseignement;
+
+public interface IDAOUniteEnseignement extends IDAO<UniteEnseignement>{
 
 }
