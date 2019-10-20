@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -20,10 +22,9 @@ public class RessourceMaterielle {
 	@Column(name="RM_COUT")
 	private float cout;
 	
-	@Column(name="RM_DISPO")
+	@OneToMany
+	@JoinColumn(name="RM_DISPO")
 	private boolean disponibilite;
-	
-	//TODO : Faire les jointures.
 	
 	//Properties
 	public int getId() {return id;}

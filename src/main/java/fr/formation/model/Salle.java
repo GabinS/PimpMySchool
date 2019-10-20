@@ -9,45 +9,43 @@ import javax.persistence.Table;
 public class Salle extends RessourceMaterielle {
 
 	//Fields	
-	@Column(name="SAL_MAXUSER")
-	private int nbMaxUser;
+	@Column(name="SAL_UMAX")
+	private int utilisateurMax;
 
 	@Column(name="SAL_ADR")
 	private String adresse;
 	
 	@Column(name="SAL_CONTACT")
-	private String contactAdministratif;
-	
-	//TODO : Jointures.
+	private String contact;
 	
 	//Properties
-	public int getNbMaxUser() {return nbMaxUser;}
-	public void setNbMaxUser(int nbMaxUser) {this.nbMaxUser = nbMaxUser;}
+	public int getNbMaxUser() {return utilisateurMax;}
+	public void setNbMaxUser(int nbMaxUser) {this.utilisateurMax = nbMaxUser;}
 
 	public String getAdresse() {return adresse;}
 	public void setAdresse(String adresse) {this.adresse = adresse;}
 
-	public String getContactAdministratif() {return contactAdministratif;}
-	public void setContactAdministratif(String contactAdministratif) {this.contactAdministratif = contactAdministratif;}
+	public String getContactAdministratif() {return contact;}
+	public void setContactAdministratif(String contactAdministratif) {this.contact = contactAdministratif;}
 	
 	//Constructors
 	public Salle() {}
 	
 	public Salle(int nbMaxUser) {
 		super();
-		this.nbMaxUser = nbMaxUser;
+		this.utilisateurMax = nbMaxUser;
 	}
 	
 	public Salle(int nbMaxUser, String adresse) {
 		super();
-		this.nbMaxUser = nbMaxUser;
+		this.utilisateurMax = nbMaxUser;
 		this.adresse = adresse;
 	}
 	
-	public Salle(int nbMaxUser, String adresse, String contactAdministratif) {
+	public Salle(int nbMaxUser, String adresse, String contactS) {
 		super();
-		this.nbMaxUser = nbMaxUser;
+		this.utilisateurMax = nbMaxUser;
 		this.adresse = adresse;
-		this.contactAdministratif = contactAdministratif;
+		this.contact = contact;
 	}
 }
