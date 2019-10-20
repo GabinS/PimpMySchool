@@ -4,7 +4,7 @@
 <html>
 	<head>
 		<meta charset="ISO-8859-1">
-		<jsp:include page="style.jsp" />
+		<jsp:include page="../style.jsp" />
 		<title>Formation - ${ formation.libelle }</title>
 	</head>
 	<body>
