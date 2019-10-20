@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,20 +28,27 @@ public class MatiereController {
 	}
 	
 	@GetMapping("/create")
-	public String CreateMatiere(Model model) {
+	public String CreateMatiereGet(Model model) {
 		model.addAttribute("title", "Nouvelle matière");
 		return "formation/matiereForm";
 	}
 	
 	@GetMapping("/edit/{id}")
-	public String EditMatiere(Model model, @PathVariable int id) {
+	public String EditMatiereGet(Model model, @PathVariable int id) {
 		Matiere matiere = srvMatiere.get(id);
 		model.addAttribute("title", "Edition de la matière " + matiere.getTitre());
 		return "formation/matiereForm";
 	}
 	
-	@PostMapping("/inscription")
-	public String subscribe() {
+	@GetMapping("/delete/{id}")
+	public String DeleteMatiereGet(Model model, @PathVariable int id) {
+		srvMatiere.deleteById(id);
+		return "redirect:/formation";
+	}
+	
+	@PostMapping("/create")
+	public String CreateMatierePost(@ModelAttribute Matiere matiere) {
+		srvMatiere.add(matiere);
 		return "redirect:/formation";
 	}
 }

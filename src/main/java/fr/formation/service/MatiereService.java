@@ -27,4 +27,9 @@ public class MatiereService {
 	public Matiere add(Matiere matiere) {
 		return daoMatiere.Save(matiere);
 	}
+	
+	@Transactional
+	public void deleteById(int id) {
+		daoMatiere.DeleteById(id);
+	}
 }
