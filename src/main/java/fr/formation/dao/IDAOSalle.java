@@ -1,5 +1,7 @@
 package fr.formation.dao;
 
-public interface IDAOSalle{
+import fr.formation.model.Salle;
+
+public interface IDAOSalle extends IDAO<Salle> {
 	
 }
