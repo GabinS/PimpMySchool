@@ -91,7 +91,7 @@
 | Robin    | Formation |
 | Damien   | RessourceMaterielle / Disponibilite / Salle |
 | Mathieux | RessourceMaterielle / Disponibilite / Ordinateur |
-| Sofian   | RessourceMaterielle / Disponibilite / VideoProjecteur |
+| Sofiane   | RessourceMaterielle / Disponibilite / VideoProjecteur |
 | Joris    | Formateur / Techinicien / Gestionnaire / Stagiaire |
 | Gabin    | UniteEnseignement / Matiere |
 
