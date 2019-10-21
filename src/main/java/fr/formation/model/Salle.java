@@ -42,7 +42,7 @@ public class Salle extends RessourceMaterielle {
 		this.adresse = adresse;
 	}
 	
-	public Salle(int nbMaxUser, String adresse, String contactS) {
+	public Salle(int nbMaxUser, String adresse, String contact) {
 		super();
 		this.utilisateurMax = nbMaxUser;
 		this.adresse = adresse;
