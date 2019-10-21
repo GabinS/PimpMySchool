@@ -1,5 +1,7 @@
 package fr.formation.dao;
 
-public interface IDAOVideoProjecteur{
+import fr.formation.model.VideoProjecteur;
+
+public interface IDAOVideoProjecteur extends IDAO<VideoProjecteur>{
 
 }
