@@ -1,17 +1,23 @@
 package fr.formation.model;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
+import javax.persistence.MappedSuperclass;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="ressourceMaterielle")
+@Inheritance(strategy = InheritanceType.JOINED)
 public class RessourceMaterielle {
 	//Fields
 	@Id
@@ -22,20 +28,16 @@ public class RessourceMaterielle {
 	@Column(name="RM_COUT")
 	private float cout;
 	
-	@ManyToMany
-	@JoinColumn(name="RM_PLANNING")
+	@ManyToMany(mappedBy = "listRessourceMat")
 	private Planning planning;
 	
-	@ManyToMany
-	@JoinColumn(name="RM_FORMATION")
+	@ManyToMany(mappedBy = "listRessourceMaterielle")
 	private Formation formation;
 	
-	@OneToMany
-	@JoinColumn(name="RM_DISPO")
-	private Disponibilite disponibilite;
+	@OneToMany(mappedBy = "ressourceMaterielle")
+	private List<Disponibilite> listDisponibilite;
 	
-	@ManyToMany
-	@JoinColumn(name="RM_TECHNICIEN")
+	@ManyToMany(mappedBy = "listRessourceMaterielle")
 	private Technicien technicien;
 	
 	//Properties
