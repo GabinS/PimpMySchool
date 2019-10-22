@@ -26,11 +26,11 @@ public class Planning {
 	private int id;
 	
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name="PLA_DATE_DEB")
+	@Column(name="PLA_DAT_DEB")
 	private Date dateDebut;
 	
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name="PLA_DATE_FIN")
+	@Column(name="PLA_DAT_FIN")
 	private Date dateFin;
 	
 	@ManyToMany
@@ -41,14 +41,12 @@ public class Planning {
 		)
 	private List<RessourceMaterielle> listRessourceMat;
 	
-	// TODO
 	@ManyToOne
-	@JoinColumn(name="PLA_MATIERE_ID")
+	@JoinColumn(name="PLA_MAT_ID")
 	private Matiere matiere;
 
-	// TODO
 	@ManyToOne
-	@JoinColumn(name="PLA_FORMATION_ID")
+	@JoinColumn(name="PLA_FOR_ID")
 	private Formation formation;
 
 	public int getId() {
