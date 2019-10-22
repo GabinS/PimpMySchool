@@ -1,5 +1,7 @@
 package fr.formation.dao;
 
-public interface IDAOPlanning{
+import fr.formation.model.Planning;
+
+public interface IDAOPlanning extends IDAO<Planning>{
 
 }
