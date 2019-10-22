@@ -83,15 +83,15 @@
 
     git push
 
-**_Voilà! Vos modifs sont accessible sur le serveur git_**
+**_Voilà! Vos modifs sont accessibles sur le serveur git_**
 
 | Dévéloppeur | Entité |
 | ----------- | ------ |
-| Emilie   | Planing |
+| Emilie   | Planning |
 | Robin    | Formation |
 | Damien   | RessourceMaterielle / Disponibilite / Salle |
-| Mathieux | RessourceMaterielle / Disponibilite / Ordinateur |
-| Sofiane   | RessourceMaterielle / Disponibilite / VideoProjecteur |
+| Mathieu  | RessourceMaterielle / Disponibilite / Ordinateur |
+| Sofiane  | RessourceMaterielle / Disponibilite / VideoProjecteur |
 | Joris    | Formateur / Techinicien / Gestionnaire / Stagiaire |
 | Gabin    | UniteEnseignement / Matiere |
 
@@ -104,7 +104,7 @@
     - Planning
     - Formation (unité d'enseignement)
 - Home
-    - planing journée actuel
+    - planning journée actuelle
     - Alerte ressource matérielle (technicien)
 - Inscription
 - Connexion
@@ -123,5 +123,5 @@
 - Formation
     - CRUD Formation
     - CRUD Unité d'enseignement
-    - CRUD Matiere
-    - Lien vers le planing d'une formation
+    - CRUD Mati�re
+    - Lien vers le planning d'une formation
