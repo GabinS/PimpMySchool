@@ -26,27 +26,30 @@ public class Formation {
 	@Column(name = "FOR_LIBELLE", length = 50, nullable = false)
 	private String libelle;
 
-	@ManyToMany(mappedBy = "listFormation")
+	@ManyToMany
+	@JoinTable(name = "FOR_MATIERES")
 	private List<Matiere> listMatiere;
 
-	// TODO Surement a modif
 	@ManyToMany
 	@JoinTable(name = "FOR_RESMATERIELLE")
 	private List<RessourceMaterielle> listRessourceMaterielle;
 
-	// TODO Remplir le mappedBy par le nom de la variable dans la classe Stagiaire
-	@OneToMany(mappedBy = "")
+	@OneToMany(mappedBy = "stagiaire")
 	private List<Stagiaire> listStagiaire;
 
-	// TODO Remplir le mappedBy par le nom de la variable dans la classe Planning
-	@OneToMany(mappedBy = "")
+	@OneToMany(mappedBy = "formation")
 	private List<Planning> planningFormation;
 
-	//TODO Compléter 'name' du JoinColumn
 	@ManyToOne()
-	@JoinColumn(name = "")
+	@JoinColumn(name = "FOR_GESTIONNAIRE_ID")
 	private Gestionnaire gestionnaire;
 
+	public Formation() {
+		super();
+	}
+	
+	
+// --------------------------------------------------------
 	public int getId() {
 		return id;
 	}
@@ -75,6 +78,11 @@ public class Formation {
 		this.listMatiere = listMatiere;
 	}
 
+	public boolean addMatiere(Matiere m) {
+		if(listMatiere.add(m))
+			return true;
+		return false;
+	}
 
 // --------------------------------------------------------
 	public List<Stagiaire> getListStagiaire() {
@@ -100,6 +108,12 @@ public class Formation {
 	public void setPlanningFormation(List<Planning> planningFormation) {
 
 		this.planningFormation = planningFormation;
+	}
+	
+	public boolean addPlanningFormation(Planning p) {
+		if(planningFormation.add(p))
+			return true;
+		return false;
 	}
 
 // --------------------------------------------------------
