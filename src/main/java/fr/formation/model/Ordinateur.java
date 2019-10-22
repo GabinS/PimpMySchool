@@ -4,13 +4,17 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "ordinateur")
+@PrimaryKeyJoinColumn(name = "ORD_ID", referencedColumnName = "RM_ID")
 public class Ordinateur extends RessourceMaterielle{
 
-	//Fields
+	//Fields	
 	@Column(name = "ORD_PROC")
 	private String processeur;
 	
@@ -23,6 +27,8 @@ public class Ordinateur extends RessourceMaterielle{
 	@Column(name = "ORD_DATEACHAT")
 	private Date dateAchat;
 
+	@OneToOne(mappedBy = "ordinateur")
+	private Stagiaire stagiaire;
 	
 	//Properties
 	public String getProcesseur() {
@@ -55,6 +61,14 @@ public class Ordinateur extends RessourceMaterielle{
 
 	public void setDateAchat(Date dateAchat) {
 		this.dateAchat = dateAchat;
+	}
+	
+	public Stagiaire getStagiaire() {
+		return stagiaire;
+	}
+
+	public void setStagiaire(Stagiaire stagiaire) {
+		this.stagiaire = stagiaire;
 	}
 
 	//Constructor
