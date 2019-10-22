@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
@@ -41,7 +42,12 @@ public class Matiere {
 	@ManyToMany(mappedBy = "listMatiere")
 	private List<UniteEnseignement> listUniteEnseignement;
 
-	@ManyToMany(mappedBy = "listMatiere")
+	@ManyToMany
+	@JoinTable(
+		name="matiereFormation",
+		joinColumns=@JoinColumn(name="MAT_FOR_ID", referencedColumnName="MAT_ID"),
+		inverseJoinColumns=@JoinColumn(name="FOR_MAT_ID", referencedColumnName="FOR_ID")
+	)
 	private List<Formation> listFormation;
 
 	@OneToMany(mappedBy = "listMatiere")

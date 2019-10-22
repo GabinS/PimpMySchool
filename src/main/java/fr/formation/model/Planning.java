@@ -35,11 +35,11 @@ public class Planning {
 	
 	@ManyToMany
 	@JoinTable(
-			name="planningRessourceMat",
-			joinColumns=@JoinColumn(name="PLA_RES_MAT_ID", referencedColumnName="PLA_ID"),
-			inverseJoinColumns=@JoinColumn(name="RES_MAT_PLA_ID", referencedColumnName="RM_ID")
-		)
-	private List<RessourceMaterielle> listRessourceMat;
+		name="planningRessourceMat",
+		joinColumns=@JoinColumn(name="PLA_RES_MAT_ID", referencedColumnName="PLA_ID"),
+		inverseJoinColumns=@JoinColumn(name="RES_MAT_PLA_ID", referencedColumnName="RM_ID")
+	)
+	private List<RessourceMaterielle> listRessourceMaterielle;
 	
 	@ManyToOne
 	@JoinColumn(name="PLA_MAT_ID")
@@ -62,11 +62,11 @@ public class Planning {
 	}
 
 	public List<RessourceMaterielle> getListRessourceMat() {
-		return listRessourceMat;
+		return listRessourceMaterielle;
 	}
 
 	public void setListRessourceMat(List<RessourceMaterielle> listRessourceMat) {
-		this.listRessourceMat = listRessourceMat;
+		this.listRessourceMaterielle = listRessourceMat;
 	}
 
 	public Matiere getMatiere() {
@@ -102,7 +102,7 @@ public class Planning {
 		this.id = id;
 		this.dateDebut = dateDebut;
 		this.dateFin = dateFin;
-		this.listRessourceMat = listRessourceMat;
+		this.listRessourceMaterielle = listRessourceMat;
 		this.matiere = matiere;
 		this.formation = formation;
 	}

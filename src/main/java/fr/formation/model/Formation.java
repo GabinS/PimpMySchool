@@ -8,7 +8,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
@@ -26,15 +25,13 @@ public class Formation {
 	@Column(name = "FOR_LIBELLE", length = 50, nullable = false)
 	private String libelle;
 
-	@ManyToMany
-	@JoinTable(name = "FOR_MATIERES")
+	@ManyToMany(mappedBy = "listFormation")
 	private List<Matiere> listMatiere;
 
-	@ManyToMany
-	@JoinTable(name = "FOR_RESMATERIELLE")
+	@ManyToMany(mappedBy = "listFormation")
 	private List<RessourceMaterielle> listRessourceMaterielle;
 
-	@OneToMany(mappedBy = "stagiaire")
+	@OneToMany(mappedBy = "formation")
 	private List<Stagiaire> listStagiaire;
 
 	@OneToMany(mappedBy = "formation")

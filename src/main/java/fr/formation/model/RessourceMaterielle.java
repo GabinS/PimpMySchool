@@ -10,8 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
-import javax.persistence.MappedSuperclass;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -28,17 +28,22 @@ public class RessourceMaterielle {
 	@Column(name="RM_COUT")
 	private float cout;
 	
-	@ManyToMany(mappedBy = "listRessourceMat")
-	private Planning planning;
-	
 	@ManyToMany(mappedBy = "listRessourceMaterielle")
-	private Formation formation;
+	private List<Planning> listPlanning;
+	
+	@ManyToMany	
+	@JoinTable(
+		name="resmaterielleformation",
+		joinColumns=@JoinColumn(name="RM_FOR_ID", referencedColumnName="RM_ID"),
+		inverseJoinColumns=@JoinColumn(name="FOR_RM_ID", referencedColumnName="FOR_ID")
+	)
+	private List<Formation> listFormation;
 	
 	@OneToMany(mappedBy = "ressourceMaterielle")
 	private List<Disponibilite> listDisponibilite;
 	
 	@ManyToMany(mappedBy = "listRessourceMaterielle")
-	private Technicien technicien;
+	private List<Technicien> listTechnicien;
 	
 	//Properties
 	public int getId() {return id;}
