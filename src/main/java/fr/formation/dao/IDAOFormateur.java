@@ -1,5 +1,7 @@
 package fr.formation.dao;
 
-public interface IDAOFormateur {
+import fr.formation.model.Formateur;
 
+public interface IDAOFormateur extends IDAO<Formateur>{
+	public Formateur findUFormateur(String username);
 }

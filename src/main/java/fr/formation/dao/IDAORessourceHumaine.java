@@ -1,5 +1,7 @@
 package fr.formation.dao;
 
-public interface IDAORessourceHumaine{
+import fr.formation.model.RessourceHumaine;
+
+public interface IDAORessourceHumaine extends IDAO<RessourceHumaine>{
 	
 }

@@ -1,5 +1,7 @@
 package fr.formation.dao;
 
-public interface IDAOGestionnaire{
+import fr.formation.model.Gestionnaire;
+
+public interface IDAOGestionnaire extends IDAO<Gestionnaire>{
 
 }

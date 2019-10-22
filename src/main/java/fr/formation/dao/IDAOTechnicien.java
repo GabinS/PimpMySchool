@@ -1,5 +1,7 @@
 package fr.formation.dao;
 
-public interface IDAOTechnicien{
+import fr.formation.model.Technicien;
+
+public interface IDAOTechnicien extends IDAO<Technicien>{
 	
 }

@@ -1,5 +1,7 @@
 package fr.formation.dao;
 
-public interface IDAOStagiaire{
+import fr.formation.model.Stagiaire;
+
+public interface IDAOStagiaire extends IDAO<Stagiaire>{
 
 }
