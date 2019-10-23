@@ -10,7 +10,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "formateur")
-@PrimaryKeyJoinColumn(name = "FEUR_ID", referencedColumnName = "RH_ID")
+@PrimaryKeyJoinColumn(name = "FOR_ID", referencedColumnName = "RH_ID")
 public class Formateur extends RessourceHumaine{
 	
 	@ManyToMany(mappedBy = "listFormateur")

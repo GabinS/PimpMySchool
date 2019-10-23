@@ -11,7 +11,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "ordinateur")
-@PrimaryKeyJoinColumn(name = "ORD_ID", referencedColumnName = "RM_ID")
+@PrimaryKeyJoinColumn(name = "ORD_ID", referencedColumnName = "RES_MAT_ID")
 public class Ordinateur extends RessourceMaterielle{
 
 	//Fields	

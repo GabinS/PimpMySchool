@@ -17,10 +17,7 @@ public class FormationController {
 	@GetMapping("formation")
 	public String FormationGet(Model model) {
 		
-		Formation f = new Formation();
-		f.setLibelle("Master II");
-		
-		model.addAttribute("formation", f);
+		model.addAttribute("formation", srvFormation.get(0));
 		return "formation";
 	}
 }
