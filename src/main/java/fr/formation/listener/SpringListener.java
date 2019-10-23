@@ -23,22 +23,6 @@ public class SpringListener {
 	@EventListener(ContextRefreshedEvent.class)
 	@Transactional
 	public void handleContextStarted() {
-		
-//		//Initialisation d'une matiere
-//		Matiere matiere = new Matiere();
-//		matiere.setTitre("JEE");
-//		matiere.setContenu("Le contenu JEE");
-//		matiere.setPrerequis("Les prerequis JEE");
-//		matiere.setObjectifs("Les objectifs JEE");
-//		daoMatiere.Save(matiere);
-		
-		// Initialisation d'une formation
-		Formation f = new Formation();
-		f.setLibelle("Master II");
-		
-		daoFormation.Save(f);
-		
-		System.out.println("Formation " + daoFormation.FindById(0).getLibelle());
-		
+
 	}
 }

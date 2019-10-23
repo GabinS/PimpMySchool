@@ -50,7 +50,7 @@ public class Matiere {
 	)
 	private List<Formation> listFormation;
 
-	@OneToMany(mappedBy = "listMatiere")
+	@OneToMany(mappedBy = "matiere")
 	private List<Planning> listPlanning;
 	
 	public Matiere() {

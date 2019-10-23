@@ -9,7 +9,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "videoprojecteur")
-@PrimaryKeyJoinColumn(name = "VID_ID", referencedColumnName = "RES_MAT_ID")
+@PrimaryKeyJoinColumn(name = "VID_ID", referencedColumnName = "RM_ID")
 public class VideoProjecteur extends RessourceMaterielle{
 	
 	//Fields

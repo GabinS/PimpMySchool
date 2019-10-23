@@ -22,7 +22,7 @@ public class RessourceMaterielle {
 	//Fields
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="RES_MAT_ID")
+	@Column(name="RM_ID")
 	private int id;
 
 	@Column(name="RM_COUT")
