@@ -14,10 +14,10 @@ import fr.formation.model.Formation;
 @Component
 public class SpringListener {
 	
-	@Autowired
+	//@Autowired
 	private IDAOMatiere daoMatiere;
 	
-	@Autowired
+	//@Autowired
 	private IDAOFormation daoFormation;
 	
 	@EventListener(ContextRefreshedEvent.class)

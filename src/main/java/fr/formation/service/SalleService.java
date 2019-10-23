@@ -10,7 +10,8 @@ import fr.formation.dao.IDAOSalle;
 import fr.formation.model.Salle;
 
 public class SalleService {
-	@Autowired
+	
+	//@Autowired
 	private IDAOSalle daoSalle;
 	
 	public List<Salle> getSalles() {

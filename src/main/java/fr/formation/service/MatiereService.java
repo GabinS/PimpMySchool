@@ -12,7 +12,7 @@ import fr.formation.model.Matiere;
 @Service
 public class MatiereService {
 	
-	@Autowired
+	//@Autowired
 	private IDAOMatiere daoMatiere;
 	
 	public List<Matiere> findAll() {

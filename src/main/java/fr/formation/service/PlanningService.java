@@ -12,7 +12,7 @@ import fr.formation.model.Planning;
 @Service
 public class PlanningService {
 	
-	@Autowired
+	//@Autowired
 	private IDAOPlanning daoPlanning;
 	
 	public PlanningService() {

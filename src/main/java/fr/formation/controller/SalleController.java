@@ -18,10 +18,8 @@ import fr.formation.service.SalleService;
 
 @Controller
 public class SalleController {
-	@Autowired
-	private IDAOSalle daoSalle;
 	
-	@Autowired
+	//@Autowired
 	private SalleService serviceSalle;
 	
 	//TODO : Modifier le mapping ?

@@ -13,7 +13,7 @@ import fr.formation.model.UniteEnseignement;
 @Service
 public class UniteEnseignementService {
 	
-	@Autowired
+	//@Autowired
 	private IDAOUniteEnseignement daoUniteEnseignement;
 	
 	public List<UniteEnseignement> findAll() {
