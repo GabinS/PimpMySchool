@@ -16,20 +16,20 @@ public class FormationService {
 	private IDAOFormation daoFormation;
 	
 	public List<Formation> findAll() {
-		return daoFormation.FindAll();
+		return daoFormation.findAll();
 	}
 	
 	public Formation get(int id) {
-		return daoFormation.FindById(id);
+		return daoFormation.findById(id);
 	}
 	
 	@Transactional
 	public Formation add(Formation formation) {
-		return daoFormation.Save(formation);
+		return daoFormation.save(formation);
 	}
 	
 	@Transactional
 	public void deleteById(int id) {
-		daoFormation.DeleteById(id);
+		daoFormation.deleteById(id);
 	}
 }

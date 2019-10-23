@@ -14,25 +14,25 @@ public class SalleService {
 	private IDAOSalle daoSalle;
 	
 	public List<Salle> getSalles() {
-		return daoSalle.FindAll();
+		return daoSalle.findAll();
 	}
 	
 	public Salle get(int id) {
-		return daoSalle.FindById(id);
+		return daoSalle.findById(id);
 	}
 	
 	@Transactional
 	public Salle add(Salle s) {
-		return daoSalle.Save(s);
+		return daoSalle.save(s);
 	}
 	
 	@Transactional
 	public void delete(int id) {
-		daoSalle.DeleteById(id);
+		daoSalle.deleteById(id);
 	}
 	
 	@Transactional
 	public void update(Salle s) {
-		daoSalle.Save(s);
+		daoSalle.save(s);
 	}
 }

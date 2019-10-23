@@ -20,7 +20,7 @@ public class PlanningService {
 	}
 	
 	public Planning get(int id) {
-		return daoPlanning.FindById(id);
+		return daoPlanning.findById(id);
 	}
 	
 	public List<Planning> getListePlannings(){
