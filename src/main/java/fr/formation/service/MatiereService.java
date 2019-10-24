@@ -12,24 +12,24 @@ import fr.formation.model.Matiere;
 @Service
 public class MatiereService {
 	
-	@Autowired
+	//@Autowired
 	private IDAOMatiere daoMatiere;
 	
 	public List<Matiere> findAll() {
-		return daoMatiere.FindAll();
+		return daoMatiere.findAll();
 	}
 	
 	public Matiere get(int id) {
-		return daoMatiere.FindById(id);
+		return daoMatiere.findById(id);
 	}
 	
 	@Transactional
 	public Matiere add(Matiere matiere) {
-		return daoMatiere.Save(matiere);
+		return daoMatiere.save(matiere);
 	}
 		
 	@Transactional
 	public void deleteById(int id) {
-		daoMatiere.DeleteById(id);
+		daoMatiere.deleteById(id);
 	}
 }

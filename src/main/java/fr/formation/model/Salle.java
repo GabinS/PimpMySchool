@@ -2,10 +2,12 @@ package fr.formation.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="salle")
+@PrimaryKeyJoinColumn(name = "SAL_ID", referencedColumnName = "RM_ID")
 public class Salle extends RessourceMaterielle {
 
 	//Fields	

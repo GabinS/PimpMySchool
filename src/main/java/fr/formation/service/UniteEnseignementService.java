@@ -13,25 +13,25 @@ import fr.formation.model.UniteEnseignement;
 @Service
 public class UniteEnseignementService {
 	
-	@Autowired
+	//@Autowired
 	private IDAOUniteEnseignement daoUniteEnseignement;
 	
 	public List<UniteEnseignement> findAll() {
-		return daoUniteEnseignement.FindAll();
+		return daoUniteEnseignement.findAll();
 	}
 	
 	public UniteEnseignement get(int id) {
-		return daoUniteEnseignement.FindById(id);
+		return daoUniteEnseignement.findById(id);
 	}
 	
 	@Transactional
 	public UniteEnseignement add(UniteEnseignement uniteEnseignement) {
-		return daoUniteEnseignement.Save(uniteEnseignement);
+		return daoUniteEnseignement.save(uniteEnseignement);
 	}
 		
 	@Transactional
 	public void deleteById(int id) {
-		daoUniteEnseignement.DeleteById(id);
+		daoUniteEnseignement.deleteById(id);
 	}
 	
 }

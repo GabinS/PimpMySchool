@@ -36,8 +36,8 @@ public class Planning {
 	@ManyToMany
 	@JoinTable(
 		name="planningRessourceMat",
-		joinColumns=@JoinColumn(name="PLA_RES_MAT_ID", referencedColumnName="PLA_ID"),
-		inverseJoinColumns=@JoinColumn(name="RES_MAT_PLA_ID", referencedColumnName="RM_ID")
+		joinColumns=@JoinColumn(name="PLA_RM_ID", referencedColumnName="PLA_ID"),
+		inverseJoinColumns=@JoinColumn(name="RM_PLA_ID", referencedColumnName="RM_ID")
 	)
 	private List<RessourceMaterielle> listRessourceMaterielle;
 	

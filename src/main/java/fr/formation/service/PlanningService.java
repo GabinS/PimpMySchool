@@ -12,7 +12,7 @@ import fr.formation.model.Planning;
 @Service
 public class PlanningService {
 	
-	@Autowired
+	//@Autowired
 	private IDAOPlanning daoPlanning;
 	
 	public PlanningService() {
@@ -20,7 +20,7 @@ public class PlanningService {
 	}
 	
 	public Planning get(int id) {
-		return daoPlanning.FindById(id);
+		return daoPlanning.findById(id);
 	}
 	
 	public List<Planning> getListePlannings(){

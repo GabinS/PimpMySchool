@@ -4,11 +4,12 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "videoprojecteur")
-
+@PrimaryKeyJoinColumn(name = "VID_ID", referencedColumnName = "RM_ID")
 public class VideoProjecteur extends RessourceMaterielle{
 	
 	//Fields

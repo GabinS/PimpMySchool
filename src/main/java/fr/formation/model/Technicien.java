@@ -17,8 +17,8 @@ public class Technicien extends RessourceHumaine{
 	@ManyToMany
 	@JoinTable(
 			name="technicienRessourceMaterielle",
-			joinColumns=@JoinColumn(name="TEC_RES_MAT_ID", referencedColumnName="TEC_ID"),
-			inverseJoinColumns=@JoinColumn(name="RES_MAT_TEC_ID", referencedColumnName="RES_MAT_ID")
+			joinColumns=@JoinColumn(name="TEC_RM_ID", referencedColumnName="TEC_ID"),
+			inverseJoinColumns=@JoinColumn(name="RM_TEC_ID", referencedColumnName="RM_ID")
 		)
 	private List<RessourceMaterielle> listRessourceMaterielle;
 
