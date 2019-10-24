@@ -24,17 +24,29 @@ public class SalleController {
 	
 	//TODO : Modifier le mapping ?
 	@GetMapping("/salle/ajouter")
+	@Transactional
 	public String add() {
 		return "addSalle";
 	}
 	
 	//TODO : Modifier le mapping ?
-	@PostMapping("/salle/{id}")
+	@PostMapping("/salle")
+	@Transactional
 	public String view(@PathVariable int id, Model model) {
 		List<Salle> listSalle = serviceSalle.getSalles();
 		Hibernate.initialize(listSalle);
 		model.addAttribute("listSalle", listSalle);
 		
 		return "salle";
+	}
+	
+	//TODO : Modifier le mapping ?
+	@PostMapping("/salle/reserver")
+	@Transactional
+	public String reserve() {
+		//TODO : Réserver la salle pour une formation.
+		//TODO : Vérifier si la salle contient assez de places.
+		
+		return "reserveSalle";
 	}
 }

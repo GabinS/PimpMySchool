@@ -13,10 +13,10 @@
 				<tr>
 					<td>Id</td>
 					<td>Coût (par jour)</td>
-					<td>Disponibilité</td>
 					<td>Nombre de places</td>
 					<td>Adresse postale</td>
 					<td>Contact administratif</td>
+					<td>Disponibilité</td>
 					<td>Actions</td>
 				</tr>
 			</thead>
@@ -28,7 +28,8 @@
 					<td>${salle.places}</td>
 					<td>${salle.adresse}</td>
 					<td>${salle.contact}</td>
-					<td>TODO</td>
+					<td><!-- TODO : Afficher libre en vert ou réservée en rouge --></td>
+					<td><!-- TODO : Réserver -> Menu déroulant pour choisir une formation --></td>
 				</c:forEach>
 			</tbody>
 		</table>
