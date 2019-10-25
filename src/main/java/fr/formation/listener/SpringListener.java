@@ -9,13 +9,12 @@ import org.springframework.stereotype.Component;
 
 import fr.formation.dao.IDAOFormation;
 import fr.formation.dao.IDAOMatiere;
-import fr.formation.model.Formation;
 import fr.formation.model.Matiere;
 
 @Component
 public class SpringListener {
 	
-	@Autowired(required = false)
+	@Autowired
 	private IDAOMatiere daoMatiere;
 	
 	//@Autowired
@@ -25,8 +24,10 @@ public class SpringListener {
 	@Transactional
 	public void handleContextStarted() {		
 		// Initialisation matiere
-		//Matiere m = new Matiere("titre", "objectifs", "prerequis", "contenu");
-		//daoMatiere.save(m);
+		Matiere m = new Matiere("JEE", "objectifs JEE", "prerequis JEE", "contenu JEE");
+		daoMatiere.save(m);
+		Matiere m2 = new Matiere("C#", "objectifs C#", "prerequis C#", "contenu C#");
+		daoMatiere.save(m2);
 
 	}
 }

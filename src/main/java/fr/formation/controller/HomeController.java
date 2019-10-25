@@ -9,7 +9,7 @@ public class HomeController {
 
 	@GetMapping("")
 	public String HomeGet(Model model) {
-		model.addAttribute("title", "Home");
+		model.addAttribute("title", "Accueil PimpMySchool");
 		return "home";
 	}
 	

@@ -22,12 +22,17 @@ public class MatiereService {
 	public Matiere get(int id) {
 		return daoMatiere.findById(id);
 	}
-	
+
 	@Transactional
 	public Matiere add(Matiere matiere) {
 		return daoMatiere.save(matiere);
 	}
-		
+	
+	@Transactional
+	public Matiere edit(Matiere matiere) {
+		return daoMatiere.save(matiere);
+	}
+	
 	@Transactional
 	public void deleteById(int id) {
 		daoMatiere.deleteById(id);
