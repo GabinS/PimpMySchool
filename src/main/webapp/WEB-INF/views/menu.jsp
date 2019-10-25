@@ -6,18 +6,18 @@
         <a class="nav-link" href="#">Planning</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Formations</a>
+        <a class="nav-link" href="/formation">Formations</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">Matérielles</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/PimpMySchool/matiere">Matiere</a>
+        <a class="nav-link" href="/PimpMySchool/formation/matiere">Matiere</a>
       </li>
     </ul>
     <ul class="navbar-nav navbar-right">
       <li><a class="nav-link" href="#"><span class="glyphicon glyphicon-user"></span> Mes informations</a></li>
-      <li><a class="nav-link" href="#"><span class="glyphicon glyphicon-log-out"></span> Déconnexion</a></li>
+      <li><a class="nav-link" href="/logout"><span class="glyphicon glyphicon-log-out"></span> Déconnexion</a></li>
     </ul>
   </div>  
 </nav>

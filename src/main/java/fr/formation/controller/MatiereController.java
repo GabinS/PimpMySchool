@@ -1,7 +1,5 @@
 package fr.formation.controller;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,7 +13,7 @@ import fr.formation.model.Matiere;
 import fr.formation.service.MatiereService;
 
 @Controller
-@RequestMapping(value = "/matiere")
+@RequestMapping(value = "/formation/matiere")
 public class MatiereController {
 	
 	@Autowired
@@ -23,11 +21,13 @@ public class MatiereController {
 	
 	@GetMapping("")
 	public String Matiere(Model model) {
-		model.addAttribute("title", "Nouvelle matière");
-		return "redirect:/matiere/create";
+		//model.addAttribute("listmatiere", srvMatiere.findAll());
+		
+		model.addAttribute("title", "Matière");
+		return "formation/matiereForm";
 	}
 	
-	@GetMapping("/create")
+	@GetMapping("/add")
 	public String CreateMatiereGet(Model model) {
 		model.addAttribute("title", "Nouvelle matière");
 		return "formation/matiereForm";
@@ -35,26 +35,28 @@ public class MatiereController {
 	
 	@GetMapping("/edit/{id}")
 	public String EditMatiereGet(Model model, @PathVariable int id) {
-		Matiere matiere = srvMatiere.get(id);
-		model.addAttribute("title", "Edition de la matière " + matiere.getTitre());
+		//Matiere matiere = srvMatiere.get(id);
+		model.addAttribute("title", "Edition de la matière " + "titre"); //matiere.getTitre()
+		model.addAttribute("id", id);
 		return "formation/matiereForm";
 	}
 	
 	@GetMapping("/delete/{id}")
 	public String DeleteMatiereGet(Model model, @PathVariable int id) {
 		srvMatiere.deleteById(id);
-		return "redirect:/formation";
+		return "redirect:/formation/matiere";
 	}
 	
 	@PostMapping("/create")
 	public String CreateMatierePost(@ModelAttribute Matiere matiere) {
 		srvMatiere.add(matiere);
-		return "redirect:/formation";
+		return "redirect:/formation/matiere";
 	}
 	
 	@PostMapping("/delete/{id}")
 	public String DeleteMatierePost(@PathVariable int id) {
 		//TODO save edition
-		return "redirect:/formation";
+		return "redirect:/formation/matiere";
 	}
+	
 }

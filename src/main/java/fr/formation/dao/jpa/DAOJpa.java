@@ -16,7 +16,7 @@ public abstract class DAOJpa<T> {
 	
 	@SuppressWarnings("unchecked")
 	public DAOJpa() {
-		_Class = (Class<T>) GenericTypeResolver.resolveTypeArgument(getClass(), DAOJpa.class);
+		//_Class = (Class<T>) GenericTypeResolver.resolveTypeArgument(getClass(), DAOJpa.class);
 	}	
 	
 	public List<T> findAll() {
