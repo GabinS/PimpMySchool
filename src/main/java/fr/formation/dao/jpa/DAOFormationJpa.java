@@ -6,7 +6,7 @@ import fr.formation.dao.IDAOFormation;
 import fr.formation.model.Formation;
 
 @Repository
-public abstract class DAOFormationJpa extends DAOJpa<Formation> implements IDAOFormation{
+public class DAOFormationJpa extends DAOJpa<Formation> implements IDAOFormation {
 
 	public DAOFormationJpa() {
 		this._Class = Formation.class;

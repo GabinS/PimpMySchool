@@ -6,7 +6,7 @@ import fr.formation.dao.IDAOOrdinateur;
 import fr.formation.model.Ordinateur;
 
 @Repository
-public abstract class DAOOrdinateurJpa extends DAOJpa<Ordinateur> implements IDAOOrdinateur{
+public class DAOOrdinateurJpa extends DAOJpa<Ordinateur> implements IDAOOrdinateur {
 	public DAOOrdinateurJpa() {
 		this._Class = Ordinateur.class;
 	}

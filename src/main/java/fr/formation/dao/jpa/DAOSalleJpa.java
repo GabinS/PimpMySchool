@@ -6,7 +6,7 @@ import fr.formation.dao.IDAOSalle;
 import fr.formation.model.Salle;
 
 @Repository
-public abstract class DAOSalleJpa extends DAOJpa<Salle> implements IDAOSalle {
+public class DAOSalleJpa extends DAOJpa<Salle> implements IDAOSalle {
 	public DAOSalleJpa() {
 		this._Class = Salle.class;
 	}
