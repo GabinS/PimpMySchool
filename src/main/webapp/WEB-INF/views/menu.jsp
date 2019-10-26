@@ -10,7 +10,7 @@
 	        <a class="nav-link" href="#">Planning</a>
 	      </li>
 	      <li class="nav-item">
-	        <a class="nav-link" href="/formation">Formations</a>
+	        <a class="nav-link" href="/PimpMySchool/formation">Formations</a>
 	      </li>
 	      <li class="nav-item">
 	        <a class="nav-link" href="#">Matérielles</a>

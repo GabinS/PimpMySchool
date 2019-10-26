@@ -33,10 +33,8 @@ public class SpringListener {
 		// Initialisation formation
 		Formation f1 = new Formation();
 		f1.setLibelle("Master I");
-		//f1.addMatiere(m);
 		Formation f2 = new Formation();
 		f2.setLibelle("Licence Info Dev");
-		//f2.addMatiere(m2);
 		System.out.println( daoFormation.save(f1).getId());
 		daoFormation.save(f2);
 
