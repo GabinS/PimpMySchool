@@ -14,10 +14,6 @@ public class Gestionnaire extends RessourceHumaine{
 	
 	@OneToMany(mappedBy = "gestionnaire")
 	private List<Formation> listFormation;
-
-	public Gestionnaire() {
-		
-	}
 	
 	public List<Formation> getListFormation() {
 		return listFormation;
@@ -26,5 +22,16 @@ public class Gestionnaire extends RessourceHumaine{
 	public void setListFormation(List<Formation> listFormation) {
 		this.listFormation = listFormation;
 	}
+	
+	public Gestionnaire() {
+		
+	}
+
+	public Gestionnaire(List<Formation> listFormation) {
+		super();
+		this.listFormation = listFormation;
+	}
+	
+	
 	
 }
