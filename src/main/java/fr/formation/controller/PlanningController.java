@@ -52,9 +52,9 @@ public class PlanningController {
 	
 	@GetMapping("/vue")
 	public String vuePlanning(Model model) {
-	//	model.addAttribute("plannings", srvPlanning.getListePlannings());
+		model.addAttribute("plannings", srvPlanning.getListePlannings());
 		model.addAttribute("title", "Planning du XXX au XXX");
-		return "redirect:/planning/planningView";
+		return "redirect:/planningView";
 	}
 		
 	@GetMapping("/add")

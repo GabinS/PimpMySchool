@@ -44,6 +44,19 @@ public class RessourceHumaine{
 	public RessourceHumaine() {
 		
 	}
+	
+	public RessourceHumaine(int id, String nom, String prenom, String adresse, String tel, String mail, String username,
+			String password) {
+		super();
+		this.id = id;
+		this.nom = nom;
+		this.prenom = prenom;
+		this.adresse = adresse;
+		this.tel = tel;
+		this.mail = mail;
+		this.username = username;
+		this.password = password;
+	}
 
 	public int getId() {
 		return id;
