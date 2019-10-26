@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import fr.formation.model.Formation;
-import fr.formation.model.Matiere;
 import fr.formation.service.FormationService;
+import fr.formation.service.MatiereService;
 
 @Controller
 @RequestMapping(value = "/formation")
@@ -19,13 +19,27 @@ public class FormationController {
 
 	@Autowired
 	private FormationService srvFormation;
+	/*
+	@Autowired
+	private GestionnaireService srvGestionnaire;
+	*/
+	@Autowired
+	private MatiereService srvMatiere;
 	
 	private String list= "listFormation";
 	private String form= "formationForm";
 	
+	private void AddData(Model model) {
+		model.addAttribute("listFormation", srvFormation.findAll());
+		//model.addAttribute("listGestionnaire", )
+		model.addAttribute("listMatiere", srvMatiere.findAll());
+		model.getClass();
+	}
+	
+	
 	@GetMapping("")
 	public String FormationGet(Model model) { // Affiche la liste des formations
-		model.addAttribute("listFormation", srvFormation.findAll());
+		this.AddData(model);
 		
 		model.addAttribute("title", "Formation");
 		model.addAttribute("list", this.list);
@@ -35,7 +49,7 @@ public class FormationController {
 	
 	@GetMapping("/add")
 	public String CreateFormationGet(Model model) {
-		model.addAttribute("listFormation", srvFormation.findAll());
+		this.AddData(model);
 		
 		model.addAttribute("title", "Nouvelle formation");
 		model.addAttribute("list", this.list);
@@ -48,7 +62,7 @@ public class FormationController {
 		Formation formation = srvFormation.get(id);
 		model.addAttribute("formation", formation);
 		
-		model.addAttribute("listFormation", srvFormation.findAll());
+		this.AddData(model);
 		
 		model.addAttribute("title", "Edition de la formation " + formation.getLibelle());
 		model.addAttribute("list", this.list);
