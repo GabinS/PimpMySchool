@@ -11,6 +11,7 @@ import fr.formation.dao.IDAOFormation;
 import fr.formation.dao.IDAOGestionnaire;
 import fr.formation.dao.IDAOMatiere;
 import fr.formation.dao.IDAOSalle;
+import fr.formation.dao.IDAOUniteEnseignement;
 import fr.formation.model.Formation;
 import fr.formation.model.Gestionnaire;
 import fr.formation.model.Matiere;
@@ -22,10 +23,13 @@ public class SpringListener {
 	
 	@Autowired
 	private IDAOMatiere daoMatiere;
+
+	@Autowired
+	private IDAOUniteEnseignement daoUniteEnseignement;
 	
 	@Autowired
 	private IDAOFormation daoFormation;
-	
+		
 	@Autowired
 	private IDAOGestionnaire daoGestionnaire;
 	
