@@ -21,32 +21,32 @@ public class Salle extends RessourceMaterielle {
 	private String contact;
 	
 	//Properties
-	public int getNbMaxUser() {return utilisateurMax;}
-	public void setNbMaxUser(int nbMaxUser) {this.utilisateurMax = nbMaxUser;}
+	public int getUtilisateurMax() {return utilisateurMax;}
+	public void setUtilisateurMax(int nbMaxUser) {this.utilisateurMax = nbMaxUser;}
 
 	public String getAdresse() {return adresse;}
 	public void setAdresse(String adresse) {this.adresse = adresse;}
 
-	public String getContactAdministratif() {return contact;}
-	public void setContactAdministratif(String contactAdministratif) {this.contact = contactAdministratif;}
+	public String getContact() {return contact;}
+	public void setContact(String contactAdministratif) {this.contact = contactAdministratif;}
 	
 	//Constructors
 	public Salle() {}
 	
-	public Salle(int nbMaxUser) {
+	public Salle(int utilisateurMax) {
 		super();
-		this.utilisateurMax = nbMaxUser;
+		this.utilisateurMax = utilisateurMax;
 	}
 	
-	public Salle(int nbMaxUser, String adresse) {
+	public Salle(int utilisateurMax, String adresse) {
 		super();
-		this.utilisateurMax = nbMaxUser;
+		this.utilisateurMax = utilisateurMax;
 		this.adresse = adresse;
 	}
 	
-	public Salle(int nbMaxUser, String adresse, String contact) {
+	public Salle(int utilisateurMax, String adresse, String contact) {
 		super();
-		this.utilisateurMax = nbMaxUser;
+		this.utilisateurMax = utilisateurMax;
 		this.adresse = adresse;
 		this.contact = contact;
 	}

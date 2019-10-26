@@ -2,6 +2,7 @@ package fr.formation.model;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -42,7 +43,7 @@ public class Matiere {
 	@ManyToMany(mappedBy = "listMatiere")
 	private List<UniteEnseignement> listUniteEnseignement;
 
-	@ManyToMany
+	@ManyToMany(cascade = CascadeType.ALL)
 	@JoinTable(
 		name="matiereFormation",
 		joinColumns=@JoinColumn(name="MAT_FOR_ID", referencedColumnName="MAT_ID"),

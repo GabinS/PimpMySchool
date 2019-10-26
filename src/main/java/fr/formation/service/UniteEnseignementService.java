@@ -7,13 +7,12 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import fr.formation.dao.IDAOUniteEnseignement;
-import fr.formation.model.Matiere;
 import fr.formation.model.UniteEnseignement;
 
 @Service
 public class UniteEnseignementService {
 	
-	//@Autowired
+	@Autowired
 	private IDAOUniteEnseignement daoUniteEnseignement;
 	
 	public List<UniteEnseignement> findAll() {
@@ -26,6 +25,11 @@ public class UniteEnseignementService {
 	
 	@Transactional
 	public UniteEnseignement add(UniteEnseignement uniteEnseignement) {
+		return daoUniteEnseignement.save(uniteEnseignement);
+	}
+	
+	@Transactional
+	public UniteEnseignement edit(UniteEnseignement uniteEnseignement) {
 		return daoUniteEnseignement.save(uniteEnseignement);
 	}
 		

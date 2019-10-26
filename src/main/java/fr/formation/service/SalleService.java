@@ -5,13 +5,16 @@ import java.util.List;
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import fr.formation.dao.IDAOSalle;
 import fr.formation.model.Salle;
 
+@Service
 public class SalleService {
 	
-	//@Autowired
+	@Autowired
 	private IDAOSalle daoSalle;
 	
 	public List<Salle> getSalles() {
