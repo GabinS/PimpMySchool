@@ -5,6 +5,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -18,6 +19,8 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 @Entity
 @Table(name = "planning")
 public class Planning {
@@ -27,15 +30,17 @@ public class Planning {
 	@Column(name = "PLA_ID")
 	private int id;
 	
+	@DateTimeFormat(pattern="yyyy-MM-dd")
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name="PLA_DAT_DEB")
 	private Date dateDebut;
 	
+	@DateTimeFormat(pattern="yyyy-MM-dd")
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name="PLA_DAT_FIN")
 	private Date dateFin;
 	
-	@ManyToMany
+	@ManyToMany(cascade = CascadeType.ALL)
 	@JoinTable(
 		name="planningRessourceMat",
 		joinColumns=@JoinColumn(name="PLA_RM_ID", referencedColumnName="PLA_ID"),

@@ -12,7 +12,7 @@ import fr.formation.model.Planning;
 @Service
 public class PlanningService {
 	
-	//@Autowired
+	@Autowired
 	private IDAOPlanning daoPlanning;
 	
 	public PlanningService() {
@@ -29,12 +29,17 @@ public class PlanningService {
 
 	@Transactional
 	public void add(Planning p) {
+		System.out.println("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
+		System.out.println(p.getDateDebut());
+		System.out.println("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
 		daoPlanning.save(p);
+		
 	}
 
 	@Transactional
 	public void update(Planning p) {
 		daoPlanning.save(p);		
+		System.out.println(p.getDateDebut());
 	}
 	
 	@Transactional

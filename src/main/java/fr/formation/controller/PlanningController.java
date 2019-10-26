@@ -12,7 +12,6 @@ import fr.formation.model.Planning;
 import fr.formation.service.FormationService;
 import fr.formation.service.MatiereService;
 import fr.formation.service.PlanningService;
-import fr.formation.service.SalleService;
 
 @Controller
 @RequestMapping(value = "/planning")
@@ -27,47 +26,44 @@ public class PlanningController {
 	@Autowired
 	private FormationService srvFormation;
 
-	@Autowired
-	private SalleService srvSalle;
 	
 	private String list= "listPlanning";
 	private String form= "planningForm";
-	private String view = "planningView";
+	//private String view = "planningView";
 	
 	
 	@GetMapping("")
 	public String Planning(Model model) {
-		//model.addAttribute("listPlanning", srvPlanning.getListePlannings());
+		model.addAttribute("listPlanning", srvPlanning.getListePlannings());
 		model.addAttribute("title", "Planning");
 		model.addAttribute("list", this.list);
 		model.addAttribute("form", "descriptionPlanning");
 		return "planning/planningTemplate";
 	}
 	
-	@GetMapping("/listea")
+/*	@GetMapping("/listea")
 	public String findAll(Model model) {
-	//	model.addAttribute("plannings", srvPlanning.getListePlannings());
+		//model.addAttribute("plannings", srvPlanning.getListePlannings());
 		model.addAttribute("title", "Planning");
 		model.addAttribute("list", view);
 		model.addAttribute("form", view);
 		return "planning/listPlanning";
-	}
+	}*/
 	
 	@GetMapping("/vue")
 	public String vuePlanning(Model model) {
 	//	model.addAttribute("plannings", srvPlanning.getListePlannings());
 		model.addAttribute("title", "Planning du XXX au XXX");
-		return "planning/planningView";
+		return "redirect:/planning/planningView";
 	}
 		
 	@GetMapping("/add")
 	public String createPlanningGet(Model model) {
-		//model.addAttribute("listPlanning", srvPlanning.getListePlannings());
+		model.addAttribute("listPlanning", srvPlanning.getListePlannings());
 		
 		model.addAttribute("title", "Nouveau cours");
 		model.addAttribute("matieres", srvMatiere.findAll());
 		model.addAttribute("formations", srvFormation.findAll());
-		model.addAttribute("salles", srvSalle.getSalles());
 		model.addAttribute("list", this.list);
 		model.addAttribute("form", this.form);
 		return "planning/planningTemplate";
@@ -84,20 +80,22 @@ public class PlanningController {
 		Planning planning = srvPlanning.get(id);
 		model.addAttribute("planning", planning);
 		
-	//	model.addAttribute("listPlanning", srvPlanning.getListePlannings());
+		model.addAttribute("listPlanning", srvPlanning.getListePlannings());
+		model.addAttribute("matieres", srvMatiere.findAll());
+		model.addAttribute("formations", srvFormation.findAll());
 		
-		model.addAttribute("title", "Edition du cours " + planning.getMatiere());		
+		model.addAttribute("title", "Edition du cours " + planning.getMatiere().getTitre());		
 		model.addAttribute("list", this.list);
 		model.addAttribute("form", this.form);
 		return "planning/planningTemplate";
 	}
 	
-	@PostMapping("/edit")
-	public String editPlanningPost(@ModelAttribute Planning p) {
+	@PostMapping("/edit/{id}")
+	public String editPlanningPost(Model model, @ModelAttribute Planning p) {
 		srvPlanning.update(p);
-		return "redirect:./liste";
+		return "redirect:/planning";
 	}
-
+	
 	@GetMapping("/delete/{id}")
 	public String deletePlanningGet(Model model, @PathVariable int id) {
 		srvPlanning.delete(id);

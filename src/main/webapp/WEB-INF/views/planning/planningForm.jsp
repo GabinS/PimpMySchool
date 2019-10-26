@@ -1,35 +1,39 @@
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 			<form method="POST" class="container">
 
 				<div class="form-group">
 	  				<label for="exampleFormControlTextarea1">Matière</label>
-      				<select id="inputState" class="form-control">
-      				<c:forEach items="${ matieres }" var="matiere">
-        				<option>${ matiere.titre }</option>
-        			</c:forEach>
-      				</select>
-				</div>
-	
-			 	<c:if test="${formation == null}">
-				<div class="form-group">
-	  				<label for="exampleFormControlTextarea1">Formation</label>
-      					<select id="inputState" class="form-control">
-      					<c:forEach items="${ formations }" var="formation">
-        					<option>${ formation.libelle }</option>
+      					<select id="matiere" class="form-control" name="matiere.id">
+      					<c:forEach items="${ matieres }" var="matiere">
+        					<option 
+        					<c:if test="${ matiere.id == planning.matiere.id }">selected="selected"</c:if>
+        					value ="${ matiere.id }">${ matiere.titre }</option>
         				</c:forEach>
       					</select>
 				</div>
-				</c:if> 
- 
+	
+				<div class="form-group">
+	  				<label for="exampleFormControlTextarea1">Formation</label>
+      					<select id="formation" class="form-control" name="formation.id">
+      					<c:forEach items="${ formations }" var="formation">
+        					<option 
+        					<c:if test="${ formation.id == planning.formation.id }">selected="selected"</c:if>
+        					value ="${ formation.id }">${ formation.libelle }</option>
+        				</c:forEach>
+      					</select>
+				</div>
 				<div class="form-group">
 	  				<label for="exampleInputEmail1">Date de début :</label>
-	  				<input type="date" class="form-control" name="titre" required="required" value="${planning.dateDebut}"/>
+	  				<fmt:formatDate var="dateD" pattern="yyyy-MM-dd" value="${ planning.dateDebut }" />
+	  				<input type="date" class="form-control" name="dateDebut" required="required" value="${dateD}"/>
 				</div>
 	
 				<div class="form-group">
 	  				<label for="exampleFormControlTextarea1">Date de fin :</label>
-	  				<input type="date" class="form-control" name="titre" required="required" value="${planning.dateFin}"/>
+	  				<fmt:formatDate var="dateF" pattern="yyyy-MM-dd" value="${ planning.dateFin }" />
+	  				<input type="date" class="form-control" name="dateFin" required="required" value="${dateF}"/>
 				</div>
 <!-- 				</br>
 				<h3>Affectation du matériel</h3>
