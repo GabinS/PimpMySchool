@@ -10,7 +10,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import fr.formation.model.Matiere;
+import fr.formation.service.FormateurService;
 import fr.formation.service.MatiereService;
+import fr.formation.service.UniteEnseignementService;
 
 @Controller
 @RequestMapping(value = "/formation/matiere")
@@ -18,6 +20,12 @@ public class MatiereController {
 	
 	@Autowired
 	private MatiereService srvMatiere;
+	
+	@Autowired
+	private UniteEnseignementService srvUniteEnseignementService;
+	
+	@Autowired
+	private FormateurService srvFormateur;
 
 	private String list = "listMatiere";
 	private String form = "matiereForm";
@@ -35,6 +43,8 @@ public class MatiereController {
 	@GetMapping("/add")
 	public String CreateMatiereGet(Model model) {
 		model.addAttribute("listmatiere", srvMatiere.findAll());
+		model.addAttribute("listFormateur", srvFormateur.findAll());
+		model.addAttribute("listUE", srvUniteEnseignementService.findAll());
 		
 		model.addAttribute("title", "Nouvelle matière");
 		model.addAttribute("list", this.list);
@@ -48,6 +58,8 @@ public class MatiereController {
 		model.addAttribute("matiere", matiere);
 		
 		model.addAttribute("listmatiere", srvMatiere.findAll());
+		model.addAttribute("listFormateur", srvFormateur.findAll());
+		model.addAttribute("listUE", srvUniteEnseignementService.findAll());
 		
 		model.addAttribute("title", "Edition de la matière " + matiere.getTitre());		
 		model.addAttribute("list", this.list);
