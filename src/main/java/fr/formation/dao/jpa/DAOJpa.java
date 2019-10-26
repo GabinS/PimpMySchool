@@ -25,7 +25,9 @@ public abstract class DAOJpa<T> {
 	}
 
 	public T save(T entity) {
-		return em.merge(entity);
+		entity = em.merge(entity);
+		em.persist(entity);
+		return entity;
 	}
 	
 	public void deleteById(int id) {

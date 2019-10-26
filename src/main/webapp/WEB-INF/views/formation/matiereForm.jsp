@@ -1,4 +1,5 @@
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
 <form method="POST" class="container">
 	<div class="form-group">
@@ -20,13 +21,24 @@
 	  <label for="exampleFormControlTextarea1">Objectifs</label>
 	  <textarea class="form-control" name="objectifs" rows="3">${matiere.objectifs}</textarea>
 	</div>
+		
+	<c:if test="${listUE.size() > 0}">
+		<div class="form-group">
+		  <label for="exampleFormControlTextarea1">Unités d'enseignements associées</label>
+		  	<form:select multiple="true" path="listUE" class="form-control" name="listUniteEnseignement">
+		  		<form:options items="${listUE}" itemValue="titre" itemLabel="titre"/>
+			</form:select>
+		</div>
+	</c:if>
 	
-	<div class="form-group">
-	  <label for="exampleFormControlTextarea1">Unités d'enseignements associées</label>
-	  <select multiple class="form-control" id="exampleFormControlSelect2" name="listUniteEnseignement">
-
-	  </select>
-	</div>
+	<c:if test="${listFormateur.size() > 0}">
+		<div class="form-group">
+		  <label for="exampleFormControlTextarea1">Formateur de la matière</label>
+		  	<form:select path="listFormateur" class="form-control" name="formateur">
+		  		<form:options items="${listFormateur}" itemValue="prenom" itemLabel="prenom"/>
+			</form:select>
+		</div>
+	</c:if>
 	
 	<c:if test="${matiere == null}">
 		<button type="submit" class="btn btn-lg btn-success btn-block mb-2">Enregistrer la matière</button>

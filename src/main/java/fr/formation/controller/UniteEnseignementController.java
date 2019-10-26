@@ -1,6 +1,5 @@
 package fr.formation.controller;
 
-import org.hibernate.Hibernate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -9,8 +8,10 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import fr.formation.model.UniteEnseignement;
+import fr.formation.service.FormateurService;
 import fr.formation.service.MatiereService;
 import fr.formation.service.UniteEnseignementService;
 
@@ -23,6 +24,9 @@ public class UniteEnseignementController {
 	
 	@Autowired
 	private MatiereService srvMatiere;
+
+	@Autowired
+	private FormateurService srvFormateur;
 	
 	private String list = "listUE";
 	private String form = "UEForm";
@@ -41,6 +45,7 @@ public class UniteEnseignementController {
 	public String CreateUEGet(Model model) {
 		model.addAttribute("listUE", srvUniteEnseignementService.findAll());
 		model.addAttribute("listMatiere", srvMatiere.findAll());
+		model.addAttribute("listFormateur", srvFormateur.findAll());
 		
 		model.addAttribute("title", "Nouvelle Unité d'enseignement");
 		model.addAttribute("list", this.list);
@@ -53,6 +58,8 @@ public class UniteEnseignementController {
 		UniteEnseignement ue = srvUniteEnseignementService.get(id);
 		model.addAttribute("uniteEnseignement", ue);
 		model.addAttribute("listMatiere", srvMatiere.findAll());
+		
+		model.addAttribute("listFormateur", srvFormateur.findAll());
 		
 		model.addAttribute("listUE", srvUniteEnseignementService.findAll());
 		
@@ -75,7 +82,7 @@ public class UniteEnseignementController {
 	}
 	
 	@PostMapping("/edit/{id}")
-	public String EditUEPost(Model model, @ModelAttribute UniteEnseignement ue) {
+	public String EditUEPost(Model model, @ModelAttribute UniteEnseignement ue, RequestParam listMatiere) {
 		srvUniteEnseignementService.edit(ue);
 		return "redirect:/formation/ue";
 	}
