@@ -22,7 +22,7 @@
 	</div>
 	
 	<div class="form-group">
-	  <label for="exampleFormControlTextarea1">Unités d'enseignements</label>
+	  <label for="exampleFormControlTextarea1">Unités d'enseignements associées</label>
 	  <select multiple class="form-control" id="exampleFormControlSelect2" name="listUniteEnseignement">
 
 	  </select>

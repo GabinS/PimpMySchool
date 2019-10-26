@@ -72,11 +72,4 @@ public class MatiereController {
 		srvMatiere.edit(matiere);
 		return "redirect:/formation/matiere";
 	}
-	
-	@PostMapping("/delete/{id}")
-	public String DeleteMatierePost(@PathVariable int id) {
-		//TODO remove
-		return "redirect:/formation/matiere";
-	}
-	
 }

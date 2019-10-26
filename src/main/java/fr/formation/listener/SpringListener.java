@@ -9,7 +9,9 @@ import org.springframework.stereotype.Component;
 
 import fr.formation.dao.IDAOFormation;
 import fr.formation.dao.IDAOMatiere;
+import fr.formation.dao.IDAOUniteEnseignement;
 import fr.formation.model.Matiere;
+import fr.formation.model.UniteEnseignement;
 
 @Component
 public class SpringListener {
@@ -17,6 +19,9 @@ public class SpringListener {
 	@Autowired
 	private IDAOMatiere daoMatiere;
 	
+	@Autowired
+	private IDAOUniteEnseignement daoUniteEnseignement;
+		
 	//@Autowired
 	private IDAOFormation daoFormation;
 	
@@ -25,9 +30,13 @@ public class SpringListener {
 	public void handleContextStarted() {		
 		// Initialisation matiere
 		Matiere m = new Matiere("JEE", "objectifs JEE", "prerequis JEE", "contenu JEE");
-		daoMatiere.save(m);
 		Matiere m2 = new Matiere("C#", "objectifs C#", "prerequis C#", "contenu C#");
-		daoMatiere.save(m2);
+		
+		//Initialisation UniteEnseignement
+		UniteEnseignement ue = new UniteEnseignement("Conception et Développement du Logiciel");
+		ue.addMatiere(m);
+		ue.addMatiere(m2);
+		daoUniteEnseignement.save(ue);
 
 	}
 }
