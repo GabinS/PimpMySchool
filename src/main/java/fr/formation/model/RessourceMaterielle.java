@@ -1,9 +1,12 @@
 package fr.formation.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -31,7 +34,7 @@ public class RessourceMaterielle {
 	@ManyToMany(mappedBy = "listRessourceMaterielle")
 	private List<Planning> listPlanning;
 	
-	@ManyToMany	
+	@ManyToMany(cascade = CascadeType.ALL)
 	@JoinTable(
 		name="resmaterielleformation",
 		joinColumns=@JoinColumn(name="RM_FOR_ID", referencedColumnName="RM_ID"),
@@ -39,7 +42,7 @@ public class RessourceMaterielle {
 	)
 	private List<Formation> listFormation;
 	
-	@OneToMany(mappedBy = "ressourceMaterielle")
+	@OneToMany(mappedBy = "ressourceMaterielle", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private List<Disponibilite> listDisponibilite;
 	
 	@ManyToMany(mappedBy = "listRessourceMaterielle")
@@ -51,6 +54,25 @@ public class RessourceMaterielle {
 
 	public float getCout() {return cout;}
 	public void setCout(float cout) {this.cout = cout;}
+	
+	public List<Planning> getListPlanning() {return listPlanning;}
+	public void setListPlanning(List<Planning> listPlanning) {this.listPlanning = listPlanning;}
+	
+	public List<Formation> getListFormation() {return listFormation;}
+	public void setListFormation(List<Formation> listFormation) {this.listFormation = listFormation;}
+	
+	public List<Disponibilite> getListDisponibilite() {return listDisponibilite;}
+	public void setListDisponibilite(List<Disponibilite> listDisponibilite) {this.listDisponibilite = listDisponibilite;}
+	
+	public List<Technicien> getListTechnicien() {return listTechnicien;}
+	public void setListTechnicien(List<Technicien> listTechnicien) {this.listTechnicien = listTechnicien;}
+	
+	public void addDisponibilite(Disponibilite disponibilite) {
+		if (this.listDisponibilite == null) {
+			this.listDisponibilite = new ArrayList<Disponibilite>();
+		}		
+		this.listDisponibilite.add(disponibilite);
+	}
 	
 	//Constructors
 	public RessourceMaterielle() {}
