@@ -10,9 +10,14 @@ public class DAOFormateurJpa extends DAOJpa<Formateur> implements IDAOFormateur 
 	public DAOFormateurJpa() {
 		this._Class = Formateur.class;
 	}
-	
-	public Formateur findUFormateur(String username) {
-		// TODO Auto-generated method stub
-		return null;
+
+	public Formateur findFormateur(String username) {
+		try {
+			return em.createQuery("select f from Formateur f where f.username = :username", Formateur.class)
+					.setParameter("username", username).getSingleResult();
+		} catch (Exception e) {
+			return null;
+		}
 	}
+
 }

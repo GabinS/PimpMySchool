@@ -24,8 +24,13 @@ public class Technicien extends RessourceHumaine{
 
 	public Technicien() {
 		
-	}
+	}	
 	
+	public Technicien(List<RessourceMaterielle> listRessourceMaterielle) {
+		super();
+		this.listRessourceMaterielle = listRessourceMaterielle;
+	}
+
 	public List<RessourceMaterielle> getListRessourceMaterielle() {
 		return listRessourceMaterielle;
 	}

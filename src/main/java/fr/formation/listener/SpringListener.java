@@ -31,11 +31,15 @@ public class SpringListener {
 	public void handleContextStarted() {		
 		// Initialisation matiere
 		Matiere m = new Matiere("JEE", "objectifs JEE", "prerequis JEE", "contenu JEE");
-		daoMatiere.save(m);
 		Matiere m2 = new Matiere("C#", "objectifs C#", "prerequis C#", "contenu C#");
-		daoMatiere.save(m2);
-		
-		// Initialisation formation
+
+		//Initialisation UniteEnseignement
+		UniteEnseignement ue = new UniteEnseignement("Conception et Développement du Logiciel");
+		ue.addMatiere(m);
+		ue.addMatiere(m2);
+		daoUniteEnseignement.save(ue);
+  
+  	// Initialisation formation
 		Formation f1 = new Formation();
 		f1.setLibelle("Master I");
 		//f1.addMatiere(m);
@@ -49,6 +53,12 @@ public class SpringListener {
 		g.setUsername("Mr.Gestion");
 		g.setPassword("password");
 		daoGestionnaire.save(g);
+    
+    // Initialisation Salle
+		Salle s1 = new Salle(50, "92 rue des singes", "diddy.kong@banana.com");
+		Salle s2 = new Salle(25, "25 avenue Mouche", "Damine.L@mail.com");
+		daoSalle.save(s1);
+		daoSalle.save(s2);
 
 	}
 }

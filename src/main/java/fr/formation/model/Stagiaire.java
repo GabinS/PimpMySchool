@@ -23,8 +23,14 @@ public class Stagiaire extends RessourceHumaine{
 	public Stagiaire()
 	{
 		
-	}
+	}	
 		
+	public Stagiaire(Ordinateur ordinateur, Formation formation) {
+		super();
+		this.ordinateur = ordinateur;
+		this.formation = formation;
+	}
+
 	public Ordinateur getOrdinateur() {
 		return ordinateur;
 	}
