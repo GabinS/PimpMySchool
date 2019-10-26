@@ -9,19 +9,25 @@ import org.springframework.stereotype.Component;
 
 import fr.formation.dao.IDAOFormation;
 import fr.formation.dao.IDAOMatiere;
+import fr.formation.dao.IDAOSalle;
 import fr.formation.dao.IDAOUniteEnseignement;
-import fr.formation.model.Formation;
 import fr.formation.model.Matiere;
+import fr.formation.model.Salle;
 import fr.formation.model.UniteEnseignement;
+import fr.formation.model.Formation;
 
 @Component
 public class SpringListener {
 	
 	@Autowired
-	private IDAOMatiere daoMatiere;
-	
+	private IDAOMatiere daoMatiere;  
+  
 	@Autowired
 	private IDAOUniteEnseignement daoUniteEnseignement;
+	
+	@Autowired
+	private IDAOSalle daoSalle;
+	
 		
 	@Autowired
 	private IDAOFormation daoFormation;
@@ -47,5 +53,10 @@ public class SpringListener {
 		System.out.println( daoFormation.save(f1).getId());
 		daoFormation.save(f2);
 
+		// Initialisation Salle
+		Salle s1 = new Salle(50, "92 rue des singes", "diddy.kong@banana.com");
+		Salle s2 = new Salle(25, "25 avenue Mouche", "Damine.L@mail.com");
+		daoSalle.save(s1);
+		daoSalle.save(s2);
 	}
 }
