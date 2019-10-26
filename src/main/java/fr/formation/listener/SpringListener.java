@@ -10,9 +10,12 @@ import org.springframework.stereotype.Component;
 import fr.formation.dao.IDAOFormation;
 import fr.formation.dao.IDAOGestionnaire;
 import fr.formation.dao.IDAOMatiere;
+import fr.formation.dao.IDAOSalle;
 import fr.formation.model.Formation;
 import fr.formation.model.Gestionnaire;
 import fr.formation.model.Matiere;
+import fr.formation.model.Salle;
+import fr.formation.model.UniteEnseignement;
 
 @Component
 public class SpringListener {
@@ -25,6 +28,9 @@ public class SpringListener {
 	
 	@Autowired
 	private IDAOGestionnaire daoGestionnaire;
+	
+	@Autowired
+	private IDAOSalle daoSalle;
 	
 	@EventListener(ContextRefreshedEvent.class)
 	@Transactional
@@ -39,7 +45,7 @@ public class SpringListener {
 		ue.addMatiere(m2);
 		daoUniteEnseignement.save(ue);
   
-  	// Initialisation formation
+		// Initialisation formation
 		Formation f1 = new Formation();
 		f1.setLibelle("Master I");
 		//f1.addMatiere(m);
@@ -54,7 +60,7 @@ public class SpringListener {
 		g.setPassword("password");
 		daoGestionnaire.save(g);
     
-    // Initialisation Salle
+		// Initialisation Salle
 		Salle s1 = new Salle(50, "92 rue des singes", "diddy.kong@banana.com");
 		Salle s2 = new Salle(25, "25 avenue Mouche", "Damine.L@mail.com");
 		daoSalle.save(s1);
