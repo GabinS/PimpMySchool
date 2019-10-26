@@ -25,12 +25,19 @@ public class Formateur extends RessourceHumaine{
 	public List<UniteEnseignement> getListUniteEnseignement() {
 		return listUniteEnseignement;
 	}
-
 	
 	public Formateur() {
 		
 	}
-	
+			
+	public Formateur(List<UniteEnseignement> listUniteEnseignement, List<Matiere> listMatiere,
+			List<Disponibilite> listDisponibilite) {
+		super();
+		this.listUniteEnseignement = listUniteEnseignement;
+		this.listMatiere = listMatiere;
+		this.listDisponibilite = listDisponibilite;
+	}
+
 	public void setListUniteEnseignement(List<UniteEnseignement> listUniteEnseignement) {
 		this.listUniteEnseignement = listUniteEnseignement;
 	}
