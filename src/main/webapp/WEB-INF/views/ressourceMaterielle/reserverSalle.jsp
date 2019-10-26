@@ -11,7 +11,7 @@
 		<jsp:include page="../menu.jsp" />
 		<div class="container">
 			<div class="row">
-				<div class="col-md-4">
+				<div class="col-md-5">
 					<h2>Réserver une salle</h2>
 					<table>
 						<tr>
@@ -32,7 +32,7 @@
 						</tr>					
 					</table>
 				</div>
-				<div class="col-md-4">
+				<div class="col-md-5">
 					<form method="POST">
 						<h2>Saisir les dates</h2>
 						<p>TODO : afficher calendrier de dispo</p>

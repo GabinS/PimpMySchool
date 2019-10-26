@@ -36,7 +36,7 @@ public class SpringListener {
 
 		// Initialisation Salle
 		Salle s1 = new Salle(50, "92 rue des singes", "diddy.kong@banana.com");
-		Salle s2 = new Salle(25, "25 avenu Mouche", "bzz.bzz@bzzbzzbzz.bzz");
+		Salle s2 = new Salle(25, "25 avenue Mouche", "bzz.bzz@bzzbzzbzz.bzz");
 		daoSalle.save(s1);
 		daoSalle.save(s2);
 	}

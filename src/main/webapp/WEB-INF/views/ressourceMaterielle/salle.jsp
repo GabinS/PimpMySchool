@@ -31,9 +31,16 @@
 									<td>${salle.adresse}</td>
 									<td>${salle.contact}</td>
 									<td>
-										<a href="/PimpMySchool/salle/reserver/${salle.id}">Réserver</a>
-										<a href="/PimpMySchool/salle/modifier/${salle.id}">Modifier</a>
-										<a href="/PimpMySchool/salle/supprimer/${salle.id}">Supprimer</a>
+										<div class="dropdown">
+										  <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+										    Plus
+										  </button>
+										  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+										    <a class="dropdown-item" href="/PimpMySchool/salle/reserver/${salle.id}">Réserver</a>
+										    <a class="dropdown-item" href="/PimpMySchool/salle/modifier/${salle.id}">Modifier</a>
+										    <a class="dropdown-item" href="/PimpMySchool/salle/supprimer/${salle.id}">Supprimer</a>
+										  </div>
+										</div>
 									</td>
 								</tr>
 							</c:forEach>
