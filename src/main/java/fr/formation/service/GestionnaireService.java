@@ -12,7 +12,7 @@ import fr.formation.model.Gestionnaire;
 @Service
 public class GestionnaireService {
 
-	@Autowired(required = false)
+	@Autowired
 	private IDAOGestionnaire daoGestionnaire;
 	
 	public List<Gestionnaire> findAll() {

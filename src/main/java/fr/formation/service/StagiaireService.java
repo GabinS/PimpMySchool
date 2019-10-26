@@ -12,7 +12,7 @@ import fr.formation.model.Stagiaire;
 @Service
 public class StagiaireService {
 
-	@Autowired(required = false)
+	@Autowired
 	private IDAOStagiaire daoStagiaire;
 	
 	public List<Stagiaire> findAll() {

@@ -12,7 +12,7 @@ import fr.formation.model.Formateur;
 @Service
 public class FormateurService {
 
-	@Autowired(required = false)
+	@Autowired
 	private IDAOFormateur daoFormateur;
 	
 	public List<Formateur> findAll() {

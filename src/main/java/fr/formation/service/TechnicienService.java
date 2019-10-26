@@ -13,7 +13,7 @@ import fr.formation.model.Technicien;
 @Service
 public class TechnicienService {
 
-	@Autowired(required = false)
+	@Autowired
 	private IDAOTechnicien daoTechnicien;
 	
 	public List<Technicien> findAll() {
