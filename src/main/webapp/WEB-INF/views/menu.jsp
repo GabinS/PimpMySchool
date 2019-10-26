@@ -12,8 +12,15 @@
 	      <li class="nav-item">
 	        <a class="nav-link" href="/PimpMySchool/formation">Formations</a>
 	      </li>
-	      <li class="nav-item">
-	        <a class="nav-link" href="#">Matérielles</a>
+	      <li class="nav-item dropdown">
+	        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	        	Matérielles
+        	</a>
+        	<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+	          <a class="dropdown-item" href="/PimpMySchool/salle">Salle</a>
+	          <a class="dropdown-item" href="#">Vidéo projecteur</a>
+	          <a class="dropdown-item" href="#">Ordinateur</a>
+	        </div>
 	      </li>
 	    </ul>
 	    <ul class="navbar-nav navbar-right">

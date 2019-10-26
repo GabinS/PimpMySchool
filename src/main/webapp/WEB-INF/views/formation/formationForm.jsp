@@ -7,10 +7,28 @@
 			value="${formation.libelle}">
 	</div>
 
+	<div class="form-group">
+		<label for="exampleInputEmail1">Gestionnaire</label> <input
+			type="text" class="form-control" name="gestionnaire"
+			required="required" value="${formation.gestionnaire.nom}">
+	</div>
+
+	<div class="list-group">
+		<label for="exampleInputEmail1">Matières</label>
+		<c:if test="${formation.listMatiere != null}">
+			<c:forEach items="${formation.listMatiere}" var="m">
+				<a
+					class="list-group-item list-group-item-action list-group-item-light">
+					${m.titre} </a>
+			</c:forEach>
+		</c:if>
+	</div>
+
+
 
 	<c:if test="${formation == null}">
 		<button type="submit" class="btn btn-lg btn-success btn-block mb-2">Enregistrer
-			la matière</button>
+			la formation</button>
 	</c:if>
 	<c:if test="${formation != null}">
 		<div class="row">

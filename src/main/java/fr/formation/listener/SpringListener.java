@@ -1,11 +1,6 @@
 package fr.formation.listener;
 
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.List;
-
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,11 +9,12 @@ import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
 
 import fr.formation.dao.IDAOFormation;
+import fr.formation.dao.IDAOGestionnaire;
 import fr.formation.dao.IDAOMatiere;
 import fr.formation.dao.IDAOSalle;
 import fr.formation.dao.IDAOUniteEnseignement;
-import fr.formation.model.Disponibilite;
 import fr.formation.model.Formation;
+import fr.formation.model.Gestionnaire;
 import fr.formation.model.Matiere;
 import fr.formation.model.Salle;
 import fr.formation.model.UniteEnseignement;
@@ -27,17 +23,19 @@ import fr.formation.model.UniteEnseignement;
 public class SpringListener {
 	
 	@Autowired
-	private IDAOMatiere daoMatiere;  
-  
+	private IDAOMatiere daoMatiere;
+
 	@Autowired
 	private IDAOUniteEnseignement daoUniteEnseignement;
 	
 	@Autowired
-	private IDAOSalle daoSalle;
-	
+	private IDAOFormation daoFormation;
 		
 	@Autowired
-	private IDAOFormation daoFormation;
+	private IDAOGestionnaire daoGestionnaire;
+	
+	@Autowired
+	private IDAOSalle daoSalle;
 	
 	@EventListener(ContextRefreshedEvent.class)
 	@Transactional
@@ -52,18 +50,26 @@ public class SpringListener {
 		ue.addMatiere(m2);
 		daoUniteEnseignement.save(ue);
   
-  	// Initialisation formation
+		// Initialisation formation
 		Formation f1 = new Formation();
 		f1.setLibelle("Master I");
+		//f1.addMatiere(m);
 		Formation f2 = new Formation();
 		f2.setLibelle("Licence Info Dev");
 		System.out.println( daoFormation.save(f1).getId());
 		daoFormation.save(f2);
-
+		
+		// Initialisation gestionnaire
+		Gestionnaire g = new Gestionnaire();
+		g.setUsername("Mr.Gestion");
+		g.setPassword("password");
+		daoGestionnaire.save(g);
+    
 		// Initialisation Salle
 		Salle s1 = new Salle(50, "92 rue des singes", "diddy.kong@banana.com");
 		Salle s2 = new Salle(25, "25 avenue Mouche", "Damien.L@mail.com");
 		daoSalle.save(s1);
 		daoSalle.save(s2);
+
 	}
 }
