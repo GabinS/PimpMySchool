@@ -7,13 +7,13 @@
 	<div class="collapse navbar-collapse" id="navbarNav">
 	    <ul class="navbar-nav mr-auto">
 	      <li class="nav-item active">
-	        <a class="nav-link" href="#">Planning</a>
+	        <a class="nav-link" href="/PimpMySchool/planning">Planning</a>
 	      </li>
 	      <li class="nav-item">
 	        <a class="nav-link" href="/PimpMySchool/formation">Formations</a>
 	      </li>
 	      <li class="nav-item">
-	        <a class="nav-link" href="#">Matérielles</a>
+	        <a class="nav-link" href="/PimpMySchool/formation/matiere">Matériels</a>
 	      </li>
 	    </ul>
 	    <ul class="navbar-nav navbar-right">

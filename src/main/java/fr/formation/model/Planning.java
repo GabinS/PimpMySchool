@@ -1,5 +1,7 @@
 package fr.formation.model;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -48,7 +50,7 @@ public class Planning {
 	@ManyToOne
 	@JoinColumn(name="PLA_FOR_ID")
 	private Formation formation;
-
+	
 	public int getId() {
 		return id;
 	}
@@ -56,9 +58,49 @@ public class Planning {
 	public Date getDateDebut() {
 		return dateDebut;
 	}
+	
+	public String getDateDebutDayOfWeek() {
+		DateFormat f = new SimpleDateFormat("EEEEE");
+		return f.format(dateDebut);
+	}
+	
+	public String getDateDebutDayOfMonth() {
+		DateFormat f = new SimpleDateFormat("dd");
+		return f.format(dateDebut);
+	}
+	
+	public String getDateDebutMonth() {
+		DateFormat f = new SimpleDateFormat("MMMMM");
+		return f.format(dateDebut);
+	}
+	
+	public String getDateDebutYear() {
+		DateFormat f = new SimpleDateFormat("YYYY");
+		return f.format(dateDebut);
+	}
 
 	public Date getDateFin() {
 		return dateFin;
+	}
+	
+	public String getDateFinDayOfWeek() {
+		DateFormat f = new SimpleDateFormat("EEEEE");
+		return f.format(dateFin);
+	}
+	
+	public String getDateFinDayOfMonth() {
+		DateFormat f = new SimpleDateFormat("dd");
+		return f.format(dateFin);
+	}
+	
+	public String getDateFinMonth() {
+		DateFormat f = new SimpleDateFormat("MMMMM");
+		return f.format(dateFin);
+	}
+	
+	public String getDateFinYear() {
+		DateFormat f = new SimpleDateFormat("YYYY");
+		return f.format(dateFin);
 	}
 
 	public List<RessourceMaterielle> getListRessourceMat() {
@@ -105,6 +147,19 @@ public class Planning {
 		this.listRessourceMaterielle = listRessourceMat;
 		this.matiere = matiere;
 		this.formation = formation;
+	}
+	
+	public Planning(int id, Date dateDebut, Date dateFin, Matiere matiere,
+			Formation formation) {
+		this.id = id;
+		this.dateDebut = dateDebut;
+		this.dateFin = dateFin;
+		this.matiere = matiere;
+		this.formation = formation;
+	}
+	
+	public Planning(int id) {
+		this.id = id;
 	}
 	
 	public Planning() {

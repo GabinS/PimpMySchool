@@ -1,6 +1,6 @@
 # PimpMySchool
 ## Importer le projet sur votre environnement local
->**Pour commencer, cloner le projet dans votre rÃ©pertoire de travail.**
+>**Pour commencer, cloner le projet dans votre répertoire de travail.**
 
     git clone https://github.com/GabinS/PimpMySchool.git
 
@@ -8,25 +8,25 @@
 
     File > Import > Maven > Existing Maven Project
     Renseigner l'emplacement du projet PympMySchool
-    SÃ©lectionner l'ensemble du projet
+    Sélectionner l'ensemble du projet
     Ciquer sur Finish
 
 >**Ajouter les librairies manquantes**
     
     Clique droit sur le projet
     Build Path > Add Librairies...
-    SÃ©lectionner Serveur Runtime > Apache Tomcat
+    Sélectionner Serveur Runtime > Apache Tomcat
 
->**DÃ©marer le projet**
+>**Démarer le projet**
     
     Lancer le projet sur votre serveur Tomcat
     
-**_VoilÃ ! Il n'y a plus qu'Ã  travailler ;)_**
+**_Voilà ! Il n'y a plus qu'à  travailler ;)_**
 
 ## Ligne de conduite
 >**La structure du projet suit le pattern MCV**
 
->**La syntaxe gÃ©nÃ©rale Ã  utiliser :**
+>**La syntaxe générale à  utiliser :**
 - `Classe`
 - `variableDeClass`
 - `listVariableDeClass` (Pour les liasons n\*\*n)
@@ -36,56 +36,56 @@
 
 >**Commenter le code produit**
 
->**Penser Ã  commit rÃ©guliÃ¨rement en prÃ©cisant son contenu (Ã  chaque nouvelle fonctionnalitÃ© par exemple)**
+>**Penser à  commit régulièrement en précisant son contenu (à  chaque nouvelle fonctionnalité par exemple)**
 
-*Lorsque vous voulez mettre Ã  jour la branche principale avec les ajouts de votre branche, faites un merge request sur l'interface git, je m'occuperais de mettre votre branche Ã  jour*
+*Lorsque vous voulez mettre à  jour la branche principale avec les ajouts de votre branche, faites un merge request sur l'interface git, je m'occuperais de mettre votre branche à  jour*
 
 
-## Pour ceux qui ne sont pas Ã  l'aise avec Git
+## Pour ceux qui ne sont pas à  l'aise avec Git
 ### Navigation
 > **Changer de branche**
 
     git checkout <nom de la branche>
 
-> **CrÃ©er une branche**
+> **Créer une branche**
 
-*La branche sera liÃ©e Ã  la branche sur laquelle elle a Ã©tÃ© crÃ©Ã©e*
+*La branche sera liée à  la branche sur laquelle elle a été créée*
 
     git checkout -b <nom de la branche>
 
 ### Gestion
-> **Mettre sa branche Ã  jour**
+> **Mettre sa branche à  jour**
 
 *Pour voir si il y a des modifs sur votre branche*
 
     git fetch
 
-*RÃ©cupÃ©rer les modifs*
+*Récupérer les modifs*
 
     git pull 
 
 ### Pousser des modifs
-> **Voir les fichier modifiÃ©s**
+> **Voir les fichier modifiés**
 
     git status
     
-> **Ajouter des modifs dans un dÃ©pot**
+> **Ajouter des modifs dans un dépot**
 
     git add <nom complet fichier>
 
->**Sauvegarder un dÃ©pot**
+>**Sauvegarder un dépot**
 
-*PrÃ©ciser ce que contient le commit dans le message*
+*Préciser ce que contient le commit dans le message*
 
     git commit -m "<message>"
 
->**Pousser un dÃ©pot**
+>**Pousser un dépot**
 
     git push
 
-**_VoilÃ ! Vos modifs sont accessibles sur le serveur git_**
+**_Voilà ! Vos modifs sont accessibles sur le serveur git_**
 
-| DÃ©vÃ©loppeur | EntitÃ© |
+| Dévéloppeur | Entité |
 | ----------- | ------ |
 | Emilie   | Planning |
 | Robin    | Formation |
@@ -98,30 +98,30 @@
 ## Les Pages
 
 - Menu
-    - DÃ©connexion
+    - Déconnexion
     - Mes informations
-    - Ressource MatÃ©rielle
+    - Ressource Matérielle
     - Planning
-    - Formation (unitÃ© d'enseignement)
+    - Formation (unité d'enseignement)
 - Home
-    - planning journÃ©e actuelle
-    - Alerte ressource matÃ©rielle (technicien)
+    - planning journée actuelle
+    - Alerte ressource matérielle (technicien)
 - Inscription
 - Connexion
 - Mes informations
     - CRUD
-    - DisponibilitÃ©s
-- Ressource MatÃ©rielle
-    - DisponibilitÃ©s
+    - Disponibilités
+- Ressource Matérielle
+    - Disponibilités
     - Affectation planning
     - CRUD
 - Planning
     - Affectation des cours / formateur
-    - Affectation du matÃ©rielle
+    - Affectation du matérielle
     - Navigation du planning
     - Alerte
 - Formation
     - CRUD Formation
-    - CRUD UnitÃ© d'enseignement
+    - CRUD Unité d'enseignement
     - CRUD Matière
     - Lien vers le planning d'une formation
