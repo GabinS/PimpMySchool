@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -25,15 +25,22 @@
 						</thead>
 						<tbody>
 							<c:forEach items="${listSalle}" var="salle">
-								<td>${salle.cout}</td>
-								<td>${salle.places}</td>
-								<td>${salle.adresse}</td>
-								<td>${salle.contact}</td>
-								<td><a href="/PimpMySchool/salle/reserver/${salle.id}">Réserver</a></td>
+								<tr>
+									<td>${salle.cout}</td>
+									<td>${salle.utilisateurMax}</td>
+									<td>${salle.adresse}</td>
+									<td>${salle.contact}</td>
+									<td>
+										<a href="/PimpMySchool/salle/reserver/${salle.id}">Réserver</a>
+										<a href="/PimpMySchool/salle/modifier/${salle.id}">Modifier</a>
+										<a href="/PimpMySchool/salle/supprimer/${salle.id}">Supprimer</a>
+									</td>
+								</tr>
 							</c:forEach>
 						</tbody>
 					</table>
-				</<div>
+					<a href="/PimpMySchool/salle/ajouter">Ajouter une salle</a>
+				</div>
 			</div>
 		</div>
 	</body>

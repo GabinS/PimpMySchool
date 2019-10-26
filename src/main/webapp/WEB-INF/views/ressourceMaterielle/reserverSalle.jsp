@@ -14,17 +14,28 @@
 				<div class="col-md-4">
 					<h2>Réserver une salle</h2>
 					<table>
-						<tr><td>${salle.id}</td></tr>
-						<tr><td>${salle.cout}</td></tr>
-						<tr><td>${salle.disponibilite}</td></tr>
-						<tr><td>${salle.places}</td></tr>
-						<tr><td>${salle.adresse}</td></tr>
-						<tr><td>${salle.contact}</td></tr>
+						<tr>
+							<td>Coût (par jour)</td>
+							<td>${salle.cout}</td>
+						</tr>
+						<tr>
+							<td>Nombre de places</td>
+							<td>${salle.utilisateurMax}</td>
+						</tr>
+						<tr>
+							<td>Adresse postale</td>
+							<td>${salle.adresse}</td>
+						</tr>
+						<tr>
+							<td>Contact administratif</td>
+							<td>${salle.contact}</td>
+						</tr>					
 					</table>
 				</div>
 				<div class="col-md-4">
 					<form method="POST">
 						<h2>Saisir les dates</h2>
+						<p>TODO : afficher calendrier de dispo</p>
 						<table>
 							<tr>
 								<td><label for="dateDepart">A partir du </label></td>

@@ -17,19 +17,19 @@
 						<table>
 							<tr>
 								<td><label for="cout">Coût (par jour) </label></td>
-								<td><input type="text" name="cout"></input></td>
+								<td><input type="number" step="0.01" min="0" name="cout" value="${salle.cout}"></input></td>
 							</tr>
 							<tr>
-								<td><label for="nombrePlace">Nombre de places </label></td>
-								<td><input type="text" name="nbPlace"></input></td>
+								<td><label for="utilisateurMax">Nombre de places </label></td>
+								<td><input type="number" name="utilisateurMax" value="${salle.utilisateurMax}"></input></td>
 							</tr>
 							<tr>
-								<td><label for="adressePostale">Adresse postale </label></td>
-								<td><input type="text" name="adressePostale"></input></td>
+								<td><label for="adresse">Adresse postale </label></td>
+								<td><input type="text" name="adresse" value="${salle.adresse}"></input></td>
 							</tr>
 							<tr>
-								<td><label for="contactAdministratif">Contact administratif </label></td>
-								<td><input type="text" name="contactAdministratif"></input></td>
+								<td><label for="contact">Contact administratif </label></td>
+								<td><input type="text" name="contact" value="${salle.contact}"></input></td>
 							</tr>
 							<tr>
 								<td><input type="submit" value="Valider" /></td>
