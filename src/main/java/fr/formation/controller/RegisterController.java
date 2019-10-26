@@ -15,7 +15,6 @@ import fr.formation.service.RessourceHumaineService;
 @RequestMapping(value = "/register")
 public class RegisterController {
 	
-	
 	// A remettre avec config de gestion de sécurité
 	//@Autowired
 	//private PasswordEncoder passwordEncoder;
