@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.transaction.Transactional;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import fr.formation.dao.IDAOVideoProjecteur;
@@ -11,6 +12,8 @@ import fr.formation.model.VideoProjecteur;
 
 @Service
 public class VideoProjecteurService {
+	
+	@Autowired(required=false)
 	private IDAOVideoProjecteur daoVideoProjecteur;
 	
 	/**
