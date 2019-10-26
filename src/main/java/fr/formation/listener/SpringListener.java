@@ -9,6 +9,7 @@ import org.springframework.stereotype.Component;
 
 import fr.formation.dao.IDAOFormation;
 import fr.formation.dao.IDAOMatiere;
+import fr.formation.model.Formation;
 import fr.formation.model.Matiere;
 
 @Component
@@ -17,7 +18,7 @@ public class SpringListener {
 	@Autowired
 	private IDAOMatiere daoMatiere;
 	
-	//@Autowired
+	@Autowired
 	private IDAOFormation daoFormation;
 	
 	@EventListener(ContextRefreshedEvent.class)
@@ -28,6 +29,16 @@ public class SpringListener {
 		daoMatiere.save(m);
 		Matiere m2 = new Matiere("C#", "objectifs C#", "prerequis C#", "contenu C#");
 		daoMatiere.save(m2);
+		
+		// Initialisation formation
+		Formation f1 = new Formation();
+		f1.setLibelle("Master I");
+		//f1.addMatiere(m);
+		Formation f2 = new Formation();
+		f2.setLibelle("Licence Info Dev");
+		//f2.addMatiere(m2);
+		System.out.println( daoFormation.save(f1).getId());
+		daoFormation.save(f2);
 
 	}
 }

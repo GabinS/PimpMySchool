@@ -12,7 +12,7 @@ import fr.formation.model.Formation;
 @Service
 public class FormationService {
 
-	//@Autowired
+	@Autowired
 	private IDAOFormation daoFormation;
 	
 	public List<Formation> findAll() {
