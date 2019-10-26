@@ -40,7 +40,7 @@ public class SpringListener {
 		Matiere m2 = new Matiere("C#", "objectifs C#", "prerequis C#", "contenu C#");
 
 		//Initialisation UniteEnseignement
-		UniteEnseignement ue = new UniteEnseignement("Conception et DÃ©veloppement du Logiciel");
+		UniteEnseignement ue = new UniteEnseignement("Conception et Développement du Logiciel");
 		ue.addMatiere(m);
 		ue.addMatiere(m2);
 		daoUniteEnseignement.save(ue);
