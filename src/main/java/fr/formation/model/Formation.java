@@ -44,9 +44,13 @@ public class Formation {
 	public Formation() {
 		super();
 	}
-	
-	
-// --------------------------------------------------------
+
+	public Formation(String libelle) {
+		super();
+		this.libelle = libelle;
+	}
+
+	// --------------------------------------------------------
 	public int getId() {
 		return id;
 	}
@@ -54,7 +58,6 @@ public class Formation {
 	public void setId(int id) {
 		this.id = id;
 	}
-
 
 // --------------------------------------------------------
 	public String getLibelle() {
@@ -64,7 +67,6 @@ public class Formation {
 	public void setLibelle(String libelle) {
 		this.libelle = libelle;
 	}
-
 
 // --------------------------------------------------------
 	public List<Matiere> getListMatiere() {
@@ -76,7 +78,7 @@ public class Formation {
 	}
 
 	public boolean addMatiere(Matiere m) {
-		if(listMatiere.add(m))
+		if (listMatiere.add(m))
 			return true;
 		return false;
 	}
@@ -91,11 +93,11 @@ public class Formation {
 	}
 
 	public boolean addStagiaire(Stagiaire s) {
-		if(listStagiaire.add(s))
+		if (listStagiaire.add(s))
 			return true;
 		return false;
 	}
-	
+
 // --------------------------------------------------------
 
 	public List<Planning> getPlanningFormation() {
@@ -106,9 +108,9 @@ public class Formation {
 
 		this.planningFormation = planningFormation;
 	}
-	
+
 	public boolean addPlanningFormation(Planning p) {
-		if(planningFormation.add(p))
+		if (planningFormation.add(p))
 			return true;
 		return false;
 	}
