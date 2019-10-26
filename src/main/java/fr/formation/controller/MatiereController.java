@@ -1,7 +1,5 @@
 package fr.formation.controller;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,46 +13,70 @@ import fr.formation.model.Matiere;
 import fr.formation.service.MatiereService;
 
 @Controller
-@RequestMapping(value = "/matiere")
+@RequestMapping(value = "/formation/matiere")
 public class MatiereController {
 	
 	@Autowired
 	private MatiereService srvMatiere;
+
+	private String list = "listMatiere";
+	private String form = "matiereForm";
 	
 	@GetMapping("")
 	public String Matiere(Model model) {
-		model.addAttribute("title", "Nouvelle matière");
-		return "redirect:/matiere/create";
+		model.addAttribute("listmatiere", srvMatiere.findAll());
+		
+		model.addAttribute("title", "Matière");
+		model.addAttribute("list", this.list);
+		model.addAttribute("form", "descriptionMatiere");
+		return "formation/formationTemplate";
 	}
 	
-	@GetMapping("/create")
+	@GetMapping("/add")
 	public String CreateMatiereGet(Model model) {
+		model.addAttribute("listmatiere", srvMatiere.findAll());
+		
 		model.addAttribute("title", "Nouvelle matière");
-		return "formation/matiereForm";
+		model.addAttribute("list", this.list);
+		model.addAttribute("form", this.form);
+		return "formation/formationTemplate";
 	}
 	
 	@GetMapping("/edit/{id}")
 	public String EditMatiereGet(Model model, @PathVariable int id) {
 		Matiere matiere = srvMatiere.get(id);
-		model.addAttribute("title", "Edition de la matière " + matiere.getTitre());
-		return "formation/matiereForm";
+		model.addAttribute("matiere", matiere);
+		
+		model.addAttribute("listmatiere", srvMatiere.findAll());
+		
+		model.addAttribute("title", "Edition de la matière " + matiere.getTitre());		
+		model.addAttribute("list", this.list);
+		model.addAttribute("form", this.form);
+		return "formation/formationTemplate";
 	}
 	
 	@GetMapping("/delete/{id}")
 	public String DeleteMatiereGet(Model model, @PathVariable int id) {
 		srvMatiere.deleteById(id);
-		return "redirect:/formation";
+		return "redirect:/formation/matiere";
 	}
 	
-	@PostMapping("/create")
+	@PostMapping("/add")
 	public String CreateMatierePost(@ModelAttribute Matiere matiere) {
 		srvMatiere.add(matiere);
-		return "redirect:/formation";
+		return "redirect:/formation/matiere";
+	}
+	
+	@PostMapping("/edit/{id}")
+	public String EditMatierePost(Model model, @ModelAttribute Matiere matiere) {
+		srvMatiere.edit(matiere);
+		return "redirect:/formation/matiere";
 	}
 	
 	@PostMapping("/delete/{id}")
 	public String DeleteMatierePost(@PathVariable int id) {
-		//TODO save edition
-		return "redirect:/formation";
+		//TODO remove
+		return "redirect:/formation/matiere";
 	}
+	
 }

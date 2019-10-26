@@ -6,7 +6,7 @@ import fr.formation.dao.IDAOUniteEnseignement;
 import fr.formation.model.UniteEnseignement;
 
 @Repository
-public abstract class DAOUniteEnseignementJpa extends DAOJpa<UniteEnseignement> implements IDAOUniteEnseignement{
+public class DAOUniteEnseignementJpa extends DAOJpa<UniteEnseignement> implements IDAOUniteEnseignement {
 	public DAOUniteEnseignementJpa() {
 		this._Class = UniteEnseignement.class;
 	}

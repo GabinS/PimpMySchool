@@ -18,7 +18,7 @@ public class UniteEnseignement {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="UNI_ID")
+	@Column(name="UNI_ID", nullable = false)
 	private int id;
 	
 	@Column(name="UNI_TITRE")

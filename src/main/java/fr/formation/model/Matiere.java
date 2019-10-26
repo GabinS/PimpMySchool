@@ -20,14 +20,14 @@ public class Matiere {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="MAT_ID")
+	@Column(name="MAT_ID", nullable = false)
 	private int id;
 	
 	@Column(name="MAT_TITRE")
 	private String titre;
 	
 	@Column(name="MAT_OBJECTIFS")
-	private String Objectifs;
+	private String objectifs;
 	
 	@Column(name="MAT_PREREQUIS")
 	private String prerequis;
@@ -56,6 +56,14 @@ public class Matiere {
 	public Matiere() {
 		super();
 	}
+	
+	public Matiere(String titre, String objectifs, String prerequis, String contenu) {
+		super();
+		this.titre = titre;
+		this.objectifs = objectifs;
+		this.prerequis = prerequis;
+		this.contenu = contenu;
+	}
 
 	public int getId() {
 		return id;
@@ -74,11 +82,11 @@ public class Matiere {
 	}
 
 	public String getObjectifs() {
-		return Objectifs;
+		return objectifs;
 	}
 
 	public void setObjectifs(String objectifs) {
-		Objectifs = objectifs;
+		this.objectifs = objectifs;
 	}
 
 	public String getPrerequis() {
