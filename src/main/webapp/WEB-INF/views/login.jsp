@@ -7,8 +7,9 @@
 <title>Page de connexion</title>
 </head>
 <body>
-	<!-- A remettre avec authetification grâce à WebSecurityConfigurerAdapter (outil de gestion de connexion)
-	   <form method="post" action="perform_login">
+	
+ <form method="post" action="perform_login">
+	   <!-- A remettre avec authetification grâce à WebSecurityConfigurerAdapter (outil de gestion de connexion)
 		<input type="hidden" name="${_csrf.parameterName}"
 			value="${_csrf.token}" />
 			-->
@@ -25,9 +26,9 @@
 		</div>
 
 		<div>
-			<a href="/register">S'inscrire</a>
+			<a href="/PimpMySchool/register">S'inscrire</a>
 		</div>
-	<!-- </form>-->
+	</form>
 
 </body>
 </html>

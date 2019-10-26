@@ -8,7 +8,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import fr.formation.model.Gestionnaire;
 import fr.formation.model.RessourceHumaine;
+import fr.formation.service.GestionnaireService;
 import fr.formation.service.RessourceHumaineService;
 
 @Controller
@@ -20,7 +22,7 @@ public class RegisterController {
 	//private PasswordEncoder passwordEncoder;
 	
 	@Autowired
-	private RessourceHumaineService resServ;
+	private GestionnaireService gestServ;
 	
 	@GetMapping
 	public String register() {
@@ -28,18 +30,18 @@ public class RegisterController {
 	}
 	
 	@PostMapping
-	public String register(@ModelAttribute RessourceHumaine user) {
+	public String register(@ModelAttribute Gestionnaire user) {
 
 		String result = "redirect:./login";
 
 		if (user.getUsername().equals("") || user.getPassword().equals("")) {
 			result = "/register";
 		} else {
-			RessourceHumaine u = new RessourceHumaine();
+			Gestionnaire u = new Gestionnaire();
 			u.setUsername(user.getUsername());
 			u.setPassword(user.getPassword());
 			//u.setPassword(passwordEncoder.encode(user.getPassword()));
-			resServ.add(u);
+			gestServ.add(u);
 		}
 
 		return result;

@@ -8,13 +8,13 @@
 </head>
 <body>
 
+	<form method="POST">
 <!-- A remettre à la fin (utilisation du service de sécurité)
-		<form method="POST">
 		<input type="hidden" name="${_csrf.parameterName}"
 			value="${_csrf.token}" />
  -->
 		<div>
-			<h1>Inscription au site de chat</h1>
+			<h1>Inscription à PimpMySchool</h1>
 		</div>
 
 		<div>
@@ -30,7 +30,7 @@
 		<div>
 			<button type="submit">S'inscrire</button>
 		</div>
-	<!-- </form>  -->
+	</form>
 
 </body>
 </html>
