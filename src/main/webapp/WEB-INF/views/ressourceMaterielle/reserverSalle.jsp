@@ -15,19 +15,19 @@
 					<h2>Réserver une salle</h2>
 					<table>
 						<tr>
-							<td>Coût (par jour)</td>
+							<td style="font-weight: bold;">Coût (par jour)</td>
 							<td>${salle.cout}</td>
 						</tr>
 						<tr>
-							<td>Nombre de places</td>
+							<td style="font-weight: bold;">Nombre de places</td>
 							<td>${salle.utilisateurMax}</td>
 						</tr>
 						<tr>
-							<td>Adresse postale</td>
+							<td style="font-weight: bold;">Adresse postale</td>
 							<td>${salle.adresse}</td>
 						</tr>
 						<tr>
-							<td>Contact administratif</td>
+							<td style="font-weight: bold;">Contact administratif</td>
 							<td>${salle.contact}</td>
 						</tr>					
 					</table>
