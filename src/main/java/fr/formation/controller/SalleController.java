@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import fr.formation.dao.IDAOSalle;
 import fr.formation.model.Salle;
@@ -18,35 +19,46 @@ import fr.formation.service.SalleService;
 
 @Controller
 public class SalleController {
-	
-	//@Autowired
+	@Autowired
 	private SalleService serviceSalle;
 	
-	//TODO : Modifier le mapping ?
-	@GetMapping("/salle/ajouter")
-	@Transactional
-	public String add() {
-		return "addSalle";
-	}
+	@Autowired
+	private IDAOSalle daoSalle;
 	
-	//TODO : Modifier le mapping ?
-	@PostMapping("/salle")
-	@Transactional
-	public String view(@PathVariable int id, Model model) {
+	@GetMapping("/salle")
+	public String vue(Model model) {
 		List<Salle> listSalle = serviceSalle.getSalles();
 		Hibernate.initialize(listSalle);
 		model.addAttribute("listSalle", listSalle);
 		
-		return "salle";
+		return "ressourceMaterielle/salle";
 	}
 	
-	//TODO : Modifier le mapping ?
-	@PostMapping("/salle/reserver")
-	@Transactional
-	public String reserve() {
-		//TODO : Réserver la salle pour une formation.
-		//TODO : Vérifier si la salle contient assez de places.
+	@GetMapping("/salle/ajouter")
+	public String ajouter() {
+		return "ressourceMaterielle/ajouterSalle";
+	}
+	
+	@PostMapping("/salle/ajouter")
+	public String ajouterSalle(@RequestParam int cout, @RequestParam int nbPlaces, @RequestParam String adresseP, @RequestParam String contactA) {
+		//Salle s = new Salle();
+		//s.setCout(cout);
+		//s.setNbMaxUser(nbPlaces);
+		//s.setAdresse(adresseP);
+		//s.setContactAdministratif(contactA);
+		//daoSalle.save(s);
 		
-		return "reserveSalle";
+		return "redirect:/salle";
+	}
+	
+	@GetMapping("/salle/reserver/{id}")
+	public String reserver(@PathVariable int id) {
+		return "ressourceMaterielle/reserverSalle";
+	}
+	
+	@PostMapping("/salle/reserver/{id}")
+	public String reserverSalle(@PathVariable int id) {
+		
+		return "redirect:/salle";
 	}
 }
