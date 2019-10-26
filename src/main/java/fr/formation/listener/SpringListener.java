@@ -1,5 +1,6 @@
 package fr.formation.listener;
 
+
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -66,7 +67,7 @@ public class SpringListener {
     
 		// Initialisation Salle
 		Salle s1 = new Salle(50, "92 rue des singes", "diddy.kong@banana.com");
-		Salle s2 = new Salle(25, "25 avenue Mouche", "Damine.L@mail.com");
+		Salle s2 = new Salle(25, "25 avenue Mouche", "Damien.L@mail.com");
 		daoSalle.save(s1);
 		daoSalle.save(s2);
 
