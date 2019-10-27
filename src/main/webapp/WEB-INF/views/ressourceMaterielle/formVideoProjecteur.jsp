@@ -7,7 +7,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <jsp:include page="../style.jsp" />
-<title>Ajouter un VideoProjecteur</title>
+<title>Ajouter/Modifier un Videoprojecteur</title>
 </head>
 
 <body>
@@ -15,7 +15,8 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-8">
-				<h2>Creer un nouveau vidéoprojecteur</h2>
+			<br />
+				<h2>Ajouter/Modifier un nouveau vidéoprojecteur</h2>
 				<form method="POST">
 					<div class="form-group row">
 						<label for="resolution" class="col-sm-2 col-form-label">Nom

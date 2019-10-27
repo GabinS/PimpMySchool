@@ -7,7 +7,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <jsp:include page="../style.jsp" />
-<title>VideoProjecteur</title>
+<title>Liste des Videoprojecteurs</title>
 </head>
 <body>
 	<jsp:include page="../menu.jsp" />
