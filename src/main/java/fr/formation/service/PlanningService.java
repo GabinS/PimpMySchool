@@ -27,7 +27,6 @@ public class PlanningService {
 		return daoPlanning.findAll();
 	}
 
-
 	@Transactional
 	public void add(Planning p) {
 		daoPlanning.save(p);		
@@ -42,5 +41,4 @@ public class PlanningService {
 	public void delete(int id) {
 		daoPlanning.deleteById(id);
 	}
-
 }

@@ -35,7 +35,7 @@ public class PlanningController {
 		model.addAttribute("listPlanning", srvPlanning.getListePlannings());
 		model.addAttribute("title", "Planning");
 		model.addAttribute("list", this.list);
-		model.addAttribute("form", "descriptionPlanning");
+		model.addAttribute("form", "descriptionPlanning");		
 		return "planning/planningTemplate";
 	}
 	
@@ -43,75 +43,61 @@ public class PlanningController {
 		int r = (int)(Math.random() * 255);
 		int g = (int)(Math.random() * 255);
 		int b = (int)(Math.random() * 255);
-		String color = "rgb(" + r + "," + g + "," + b +")";
+		String color = "rgb(" + r + "," + g + "," + b +")";		
 		return color;
 	}
 	
 	@GetMapping("/vue")
 	public String vuePlanning(Model model) {
 		model.addAttribute("plannings", srvPlanning.getListePlannings());
-		
 		int limit = srvPlanning.getListePlannings().size();
 		model.addAttribute("limit", limit);
 		while (limit > 0) {
 			model.addAttribute("color", randomColor());
 			limit --;
-		}
-		
-		
-
+		}		
 		return "planning/planningView";
 	}
 		
 	@GetMapping("/add")
 	public String createPlanningGet(Model model) {
-		model.addAttribute("listPlanning", srvPlanning.getListePlannings());
-		
+		model.addAttribute("listPlanning", srvPlanning.getListePlannings());		
 		model.addAttribute("title", "Nouveau cours");
 		model.addAttribute("matieres", srvMatiere.findAll());
 		model.addAttribute("formations", srvFormation.findAll());
 		model.addAttribute("list", this.list);
-		model.addAttribute("form", this.form);
+		model.addAttribute("form", this.form);		
 		return "planning/planningTemplate";
 	}
 
 	@PostMapping("/add")
-	public String createPlanningPost(@ModelAttribute Planning p) {
-		System.out.println("id : " + p.getId());
-		System.out.println("id : " + p.getDateDebut());
-		System.out.println("id : " + p.getDateFin());
-		System.out.println("id : " + p.getMatiere().getTitre());
-		System.out.println("id : " + p.getFormation().getLibelle());
-		srvPlanning.add(p);		
-		return "redirect:/planning";
+	public String createPlanningPost(@ModelAttribute Planning p) {	
+		srvPlanning.add(p);			
+		return "redirect:/planning";		
 	}
 
 	@GetMapping("/edit/{id}")
 	public String editPlanningGet(Model model, @PathVariable int id) {
 		Planning planning = srvPlanning.get(id);
-		model.addAttribute("planning", planning);
-		
+		model.addAttribute("planning", planning);		
 		model.addAttribute("listPlanning", srvPlanning.getListePlannings());
 		model.addAttribute("matieres", srvMatiere.findAll());
-		model.addAttribute("formations", srvFormation.findAll());
-		
+		model.addAttribute("formations", srvFormation.findAll());		
 		model.addAttribute("title", "Edition du cours " + planning.getMatiere().getTitre());		
 		model.addAttribute("list", this.list);
-		model.addAttribute("form", this.form);
+		model.addAttribute("form", this.form);		
 		return "planning/planningTemplate";
 	}
 	
 	@PostMapping("/edit/{id}")
 	public String editPlanningPost(Model model, @ModelAttribute Planning p) {
-		srvPlanning.update(p);
+		srvPlanning.update(p);		
 		return "redirect:/planning";
 	}
 	
 	@GetMapping("/delete/{id}")
 	public String deletePlanningGet(Model model, @PathVariable int id) {
-		srvPlanning.delete(id);
+		srvPlanning.delete(id);		
 		return "redirect:/planning";
 	}
-
-
 }
