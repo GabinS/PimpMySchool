@@ -8,15 +8,22 @@ import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
 
+import fr.formation.dao.IDAOFormateur;
 import fr.formation.dao.IDAOFormation;
 import fr.formation.dao.IDAOGestionnaire;
 import fr.formation.dao.IDAOMatiere;
 import fr.formation.dao.IDAOSalle;
+import fr.formation.dao.IDAOStagiaire;
+import fr.formation.dao.IDAOTechnicien;
 import fr.formation.dao.IDAOUniteEnseignement;
+import fr.formation.model.Formateur;
 import fr.formation.model.Formation;
 import fr.formation.model.Gestionnaire;
 import fr.formation.model.Matiere;
 import fr.formation.model.Salle;
+import fr.formation.model.Stagiaire;
+import fr.formation.model.Technicien;
+import fr.formation.model.TypeUser;
 import fr.formation.model.UniteEnseignement;
 
 @Component
@@ -35,7 +42,19 @@ public class SpringListener {
 	private IDAOGestionnaire daoGestionnaire;
 	
 	@Autowired
+	private IDAOFormateur daoFormateur;
+	
+	@Autowired
+	private IDAOStagiaire daoStagiaire;
+	
+	@Autowired
+	private IDAOTechnicien daoTechnicien;	
+	
+	@Autowired
 	private IDAOSalle daoSalle;
+	
+	@Autowired
+	private TypeUser typeUser;
 	
 	@EventListener(ContextRefreshedEvent.class)
 	@Transactional
@@ -63,8 +82,30 @@ public class SpringListener {
 		Gestionnaire g = new Gestionnaire();
 		g.setUsername("Mr.Gestion");
 		g.setPassword("password");
+		g.setTypeUser(typeUser.Gestionnaire);
 		daoGestionnaire.save(g);
     
+		// Initialisation formateur
+		Formateur form = new Formateur();
+		form.setUsername("Mr.Gestion");
+		form.setPassword("password");
+		form.setTypeUser(typeUser.Formateur);
+		daoFormateur.save(form);
+		
+		// Initialisation stagiaire
+		Stagiaire sta = new Stagiaire();
+		sta.setUsername("Stagiaire1");
+		sta.setPassword("stag123");
+		sta.setTypeUser(typeUser.Stagiaire);
+	    daoStagiaire.save(sta);	
+				
+	    // Initialisation technicien
+	    Technicien tech = new Technicien();
+	    tech.setUsername("Technicien1");
+	    tech.setPassword("tech123");
+	    tech.setTypeUser(typeUser.Technicien);
+	    daoTechnicien.save(tech);	
+				
 		// Initialisation Salle
 		Salle s1 = new Salle(50, "92 rue des singes", "diddy.kong@banana.com");
 		Salle s2 = new Salle(25, "25 avenue Mouche", "Damien.L@mail.com");
