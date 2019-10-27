@@ -2,6 +2,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 			<form method="POST" class="container">
+			<!--  <input type="hidden" name="${ _csrf.parameterName }" value="${ _csrf.token }" /> -->
 
 				<div class="form-group">
 	  				<label for="exampleFormControlTextarea1">Matière</label>

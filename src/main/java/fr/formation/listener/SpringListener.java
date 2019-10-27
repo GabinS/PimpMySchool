@@ -1,5 +1,7 @@
 package fr.formation.listener;
 
+import java.util.Date;
+
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,12 +11,14 @@ import org.springframework.stereotype.Component;
 
 import fr.formation.dao.IDAOFormation;
 import fr.formation.dao.IDAOMatiere;
+import fr.formation.dao.IDAOPlanning;
 import fr.formation.dao.IDAOSalle;
 import fr.formation.dao.IDAOUniteEnseignement;
+import fr.formation.model.Formation;
 import fr.formation.model.Matiere;
+import fr.formation.model.Planning;
 import fr.formation.model.Salle;
 import fr.formation.model.UniteEnseignement;
-import fr.formation.model.Formation;
 
 @Component
 public class SpringListener {
@@ -31,6 +35,9 @@ public class SpringListener {
 		
 	@Autowired
 	private IDAOFormation daoFormation;
+	
+	@Autowired
+	private IDAOPlanning daoPlanning;
 	
 	@EventListener(ContextRefreshedEvent.class)
 	@Transactional
@@ -58,5 +65,12 @@ public class SpringListener {
 		Salle s2 = new Salle(25, "25 avenue Mouche", "Damine.L@mail.com");
 		daoSalle.save(s1);
 		daoSalle.save(s2);
+		
+		// Initialisation Planning	
+		Date d1 = new Date();
+		Date d2 = new Date();
+		Planning p1 = new Planning(1, d1, d2, m2, f2);
+		daoPlanning.save(p1);
+
 	}
 }

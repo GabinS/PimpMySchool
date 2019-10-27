@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
     <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
+    <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,22 +25,48 @@
     				</tr>
   				</thead>
   				<tbody>
-  					<tr>
-						<td>Janvier</td>
-						<td>jeu</td>
-						<td>18</td>
-						<td>UML</td>
-						<td>Alexandre</td>
-					</tr>
-  			<!-- 	<c:forEach items="${listePlannings}" var="planning">
+  				
+  			 	<c:forEach items="${plannings}" var="planning">
+  			 	
+  			 	<!-- Si la formation dure une journée -->
+  			 	<c:if test="${planning.dateDebut == planning.dateFin}">
 					<tr>
-						<td>${planning.id}</td>
-						<td>${planning.jourSemaine}</td>
-						<td>${planning.numeroJour}</td>
-						<td>${planning.Module}</td>
-						<td>${planning.formateur}</td>
+						<fmt:formatDate var="mois" pattern="MMMM" value="${ planning.dateDebut}" />
+						<td>${mois}</td>
+						<fmt:formatDate var="dateD" pattern="EEEE" value="${ planning.dateDebut}" />
+						<td>${dateD}</td>
+						<fmt:formatDate var="dateF" pattern="dd" value="${ planning.dateDebut }" />
+						<td>${dateF}</td>
+						<td style="background-color:${color}">${planning.matiere.getTitre()}</td>
+						<td>${planning.matiere.formateur.nom}</td>
 					</tr>
-				</c:forEach> -->
+					</c:if>
+					
+					<!-- Si la formation dure plusieurs jours -->
+					<c:if test="${planning.dateDebut != planning.dateFin}">
+					<tr>
+						<fmt:formatDate var="mois" pattern="MMMM" value="${ planning.dateDebut}" />
+						<td>${mois}</td>
+						<fmt:formatDate var="dateD" pattern="EEEE" value="${ planning.dateDebut}" />
+						<td>${dateD}</td>
+						<fmt:formatDate var="dateF" pattern="dd" value="${ planning.dateDebut }" />
+						<td>${dateF}</td>
+						<td style="background-color:${color}">${planning.matiere.getTitre()}</td>
+						<td>${planning.matiere.formateur.nom}</td>
+						<!--  date de début à la date de fin -->
+					</tr>
+					<tr>
+						<fmt:formatDate var="mois" pattern="MMMM" value="${ planning.dateFin}" />
+						<td>${mois}</td>
+						<fmt:formatDate var="dateD" pattern="EEEE" value="${ planning.dateFin}" />
+						<td>${dateD}</td>
+						<fmt:formatDate var="dateF" pattern="dd" value="${ planning.dateFin }" />
+						<td>${dateF}</td>
+						<td style="background-color:${color}">${planning.matiere.getTitre()}</td>
+						<td>${testa}</td>
+					</tr>
+					</c:if>
+				</c:forEach> 
   				</tbody>
 			</table>
 		

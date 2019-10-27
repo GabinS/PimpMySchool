@@ -1,5 +1,6 @@
 package fr.formation.service;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,11 +28,9 @@ public class PlanningService {
 		return daoPlanning.findAll();
 	}
 
+
 	@Transactional
 	public void add(Planning p) {
-		System.out.println("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
-		System.out.println(p.getDateDebut());
-		System.out.println("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
 		daoPlanning.save(p);
 		
 	}

@@ -8,13 +8,13 @@
 	    <c:if test="${planning.id == p.id}">
 		    <a href="/PimpMySchool/planning/edit/${p.id}"
 		    class="list-group-item list-group-item-action list-group-item-dark active">
-				${p.id}
+				Cours de ${p.matiere.getTitre()} avec ${p.formation.getLibelle()}
 			</a>
 		</c:if>
 		<c:if test="${planning.id != p.id}">
 		    <a href="/PimpMySchool/planning/edit/${p.id}"
 		    class="list-group-item list-group-item-action list-group-item-dark">
-				${p.id}
+				Cours de ${p.matiere.getTitre()} avec ${p.formation.getLibelle()}
 			</a>
 		</c:if>
 	</c:forEach>

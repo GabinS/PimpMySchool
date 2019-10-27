@@ -1,5 +1,9 @@
 package fr.formation.controller;
 
+import java.awt.Color;
+import java.util.Date;
+import java.util.Random;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -51,12 +55,22 @@ public class PlanningController {
 	}*/
 	
 	@GetMapping("/vue")
-	public String vuePlanning(Model model) {
+	public String vuePlanning(Model model, @ModelAttribute Planning p) {
+		Random rand = new Random();
+		float r = rand.nextFloat();
+		float g = rand.nextFloat();
+		float b = rand.nextFloat();
+		Color randomColor = new Color(r, g, b);
+
 		model.addAttribute("plannings", srvPlanning.getListePlannings());
-		model.addAttribute("title", "Planning du XXX au XXX");
-		return "redirect:/planningView";
+		model.addAttribute("color", randomColor);
+		return "planning/planningView";
 	}
 		
+	private int daysBetween(Date dateDebut, Date dateFin) {
+		return (int)( (dateDebut.getTime() - dateFin.getTime()) / (1000 * 60 * 60 * 24));	
+}
+
 	@GetMapping("/add")
 	public String createPlanningGet(Model model) {
 		model.addAttribute("listPlanning", srvPlanning.getListePlannings());

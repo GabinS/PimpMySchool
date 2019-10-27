@@ -48,11 +48,11 @@ public class Planning {
 	)
 	private List<RessourceMaterielle> listRessourceMaterielle;
 	
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name="PLA_MAT_ID")
 	private Matiere matiere;
 
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name="PLA_FOR_ID")
 	private Formation formation;
 	
@@ -64,48 +64,8 @@ public class Planning {
 		return dateDebut;
 	}
 	
-	public String getDateDebutDayOfWeek() {
-		DateFormat f = new SimpleDateFormat("EEEEE");
-		return f.format(dateDebut);
-	}
-	
-	public String getDateDebutDayOfMonth() {
-		DateFormat f = new SimpleDateFormat("dd");
-		return f.format(dateDebut);
-	}
-	
-	public String getDateDebutMonth() {
-		DateFormat f = new SimpleDateFormat("MMMMM");
-		return f.format(dateDebut);
-	}
-	
-	public String getDateDebutYear() {
-		DateFormat f = new SimpleDateFormat("YYYY");
-		return f.format(dateDebut);
-	}
-
 	public Date getDateFin() {
 		return dateFin;
-	}
-	
-	public String getDateFinDayOfWeek() {
-		DateFormat f = new SimpleDateFormat("EEEEE");
-		return f.format(dateFin);
-	}
-	
-	public String getDateFinDayOfMonth() {
-		DateFormat f = new SimpleDateFormat("dd");
-		return f.format(dateFin);
-	}
-	
-	public String getDateFinMonth() {
-		DateFormat f = new SimpleDateFormat("MMMMM");
-		return f.format(dateFin);
-	}
-	
-	public String getDateFinYear() {
-		DateFormat f = new SimpleDateFormat("YYYY");
-		return f.format(dateFin);
 	}
 
 	public List<RessourceMaterielle> getListRessourceMat() {
@@ -159,6 +119,12 @@ public class Planning {
 		this.id = id;
 		this.dateDebut = dateDebut;
 		this.dateFin = dateFin;
+		this.matiere = matiere;
+		this.formation = formation;
+	}
+	
+	public Planning(int id, Matiere matiere, Formation formation) {
+		this.id = id;
 		this.matiere = matiere;
 		this.formation = formation;
 	}

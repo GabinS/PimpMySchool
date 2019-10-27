@@ -21,9 +21,6 @@
 	          <a class="dropdown-item" href="#">Vidéo projecteur</a>
 	          <a class="dropdown-item" href="#">Ordinateur</a>
 	        </div>
-	      <li class="nav-item">
-	        <a class="nav-link" href="/PimpMySchool/formation/matiere">Matières</a>
-	      </li>
 	    </ul>
 	    <ul class="navbar-nav navbar-right">
 	      <li><a class="nav-link" href="#"><span class="glyphicon glyphicon-user"></span> Mes informations</a></li>
