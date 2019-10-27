@@ -16,7 +16,7 @@
 			<!--  <option>Nouveau gestionnaire</option> -->
 		</select>
 	</div>
-<
+
 	<div class="list-group">
 		<label for="exampleInputEmail1">Matières</label>
 
