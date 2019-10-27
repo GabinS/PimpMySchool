@@ -31,7 +31,8 @@
 							du videoprojecteur </label>
 						<div class="col-sm-10">
 							<input type="number" class="form-control" name="resolution"
-								value="${videoProjecteur.resolution}" placeholder="ex: 1080" maxlength="5"/>
+								value="${videoProjecteur.resolution}" placeholder="ex: 1080" 
+								max="99999" />
 						</div>
 					</div>
 					<div class="form-group row">
@@ -39,7 +40,7 @@
 							de vie de la lampe en nombre d'heure </label>
 						<div class="col-sm-10">
 							<input type="number" class="form-control" name="dureeVieLampe"
-								value="${videoProjecteur.dureeVieLampe}"  maxlength="5"/>
+								value="${videoProjecteur.dureeVieLampe}" max="99999"/>
 						</div>
 					</div>
 					<div class="form-group row">

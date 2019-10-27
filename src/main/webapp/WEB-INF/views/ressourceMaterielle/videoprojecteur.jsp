@@ -47,6 +47,8 @@
 												href="/PimpMySchool/videoprojecteur/modifier/${videoProjecteur.id}">Modifier</a>
 											<a class="dropdown-item"
 												href="/PimpMySchool/videoprojecteur/supprimer/${videoProjecteur.id}">Supprimer</a>
+											<a class="dropdown-item"
+											href="#">Utiliser le matériel</a>
 										</div>
 									</div>
 								</td>
