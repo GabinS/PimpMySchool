@@ -1,9 +1,5 @@
 package fr.formation.controller;
 
-import java.awt.Color;
-import java.util.Date;
-import java.util.Random;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,6 +8,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+
 import fr.formation.model.Planning;
 import fr.formation.service.FormationService;
 import fr.formation.service.MatiereService;
@@ -29,12 +26,9 @@ public class PlanningController {
 	
 	@Autowired
 	private FormationService srvFormation;
-
 	
 	private String list= "listPlanning";
 	private String form= "planningForm";
-	//private String view = "planningView";
-	
 	
 	@GetMapping("")
 	public String Planning(Model model) {
@@ -45,32 +39,30 @@ public class PlanningController {
 		return "planning/planningTemplate";
 	}
 	
-/*	@GetMapping("/listea")
-	public String findAll(Model model) {
-		//model.addAttribute("plannings", srvPlanning.getListePlannings());
-		model.addAttribute("title", "Planning");
-		model.addAttribute("list", view);
-		model.addAttribute("form", view);
-		return "planning/listPlanning";
-	}*/
+	public String randomColor() {
+		int r = (int)(Math.random() * 255);
+		int g = (int)(Math.random() * 255);
+		int b = (int)(Math.random() * 255);
+		String color = "rgb(" + r + "," + g + "," + b +")";
+		return color;
+	}
 	
 	@GetMapping("/vue")
-	public String vuePlanning(Model model, @ModelAttribute Planning p) {
-		Random rand = new Random();
-		float r = rand.nextFloat();
-		float g = rand.nextFloat();
-		float b = rand.nextFloat();
-		Color randomColor = new Color(r, g, b);
-
+	public String vuePlanning(Model model) {
 		model.addAttribute("plannings", srvPlanning.getListePlannings());
-		model.addAttribute("color", randomColor);
+		
+		int limit = srvPlanning.getListePlannings().size();
+		model.addAttribute("limit", limit);
+		while (limit > 0) {
+			model.addAttribute("color", randomColor());
+			limit --;
+		}
+		
+		
+
 		return "planning/planningView";
 	}
 		
-	private int daysBetween(Date dateDebut, Date dateFin) {
-		return (int)( (dateDebut.getTime() - dateFin.getTime()) / (1000 * 60 * 60 * 24));	
-}
-
 	@GetMapping("/add")
 	public String createPlanningGet(Model model) {
 		model.addAttribute("listPlanning", srvPlanning.getListePlannings());
@@ -85,6 +77,11 @@ public class PlanningController {
 
 	@PostMapping("/add")
 	public String createPlanningPost(@ModelAttribute Planning p) {
+		System.out.println("id : " + p.getId());
+		System.out.println("id : " + p.getDateDebut());
+		System.out.println("id : " + p.getDateFin());
+		System.out.println("id : " + p.getMatiere().getTitre());
+		System.out.println("id : " + p.getFormation().getLibelle());
 		srvPlanning.add(p);		
 		return "redirect:/planning";
 	}
@@ -115,4 +112,6 @@ public class PlanningController {
 		srvPlanning.delete(id);
 		return "redirect:/planning";
 	}
+
+
 }

@@ -48,11 +48,11 @@ public class Planning {
 	)
 	private List<RessourceMaterielle> listRessourceMaterielle;
 	
-	@ManyToOne(cascade = CascadeType.ALL)
+	@ManyToOne
 	@JoinColumn(name="PLA_MAT_ID")
 	private Matiere matiere;
 
-	@ManyToOne(cascade = CascadeType.ALL)
+	@ManyToOne
 	@JoinColumn(name="PLA_FOR_ID")
 	private Formation formation;
 	

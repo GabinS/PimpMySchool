@@ -7,6 +7,7 @@
 				<div class="form-group">
 	  				<label for="exampleFormControlTextarea1">Matière</label>
       					<select id="matiere" class="form-control" name="matiere.id">
+      					<option>Choisir un matière</option>
       					<c:forEach items="${ matieres }" var="matiere">
         					<option 
         					<c:if test="${ matiere.id == planning.matiere.id }">selected="selected"</c:if>
@@ -18,6 +19,7 @@
 				<div class="form-group">
 	  				<label for="exampleFormControlTextarea1">Formation</label>
       					<select id="formation" class="form-control" name="formation.id">
+      					<option>Choisir une formation</option>
       					<c:forEach items="${ formations }" var="formation">
         					<option 
         					<c:if test="${ formation.id == planning.formation.id }">selected="selected"</c:if>
