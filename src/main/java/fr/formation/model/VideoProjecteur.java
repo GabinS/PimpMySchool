@@ -9,6 +9,8 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 @Entity
 @Table(name = "videoprojecteur")
 @PrimaryKeyJoinColumn(name = "VID_ID", referencedColumnName = "RM_ID")
@@ -37,6 +39,7 @@ public class VideoProjecteur extends RessourceMaterielle{
 	/**
 	 * Date d'achat du Vidéoprojecteur
 	 */
+	@DateTimeFormat(pattern="yyyy-MM-dd")
 	@Temporal(TemporalType.DATE)
 	@Column(name = "VID_DATEACHAT")
 	private Date dateAchat;

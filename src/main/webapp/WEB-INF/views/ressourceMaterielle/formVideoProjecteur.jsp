@@ -1,4 +1,4 @@
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -36,9 +36,9 @@
 						</tr>
 						<tr>
 							<td><label for="dateAchat">Date d'achat</label></td>
-							<td>
-								<input type="date" name="dateAchat" value="${videoProjecteur.dateAchat}" />
-							</td>
+							<td><fmt:formatDate var="dateD" pattern="yyyy-MM-dd"
+									value="${videoProjecteur.dateAchat}" /> <input type="date"
+								name="dateAchat" required="required" value="${dateD}" /></td>
 						</tr>
 						<tr>
 							<td><input type="submit" value="Valider" /></td>

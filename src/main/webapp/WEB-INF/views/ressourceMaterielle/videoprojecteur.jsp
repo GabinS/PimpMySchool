@@ -31,7 +31,10 @@
 								<td>${videoProjecteur.resolution}</td>
 								<td>${videoProjecteur.dureeVieLampe}</td>
 								<td>${videoProjecteur.typeLampe}</td>
-								<td>${videoProjecteur.dateAchat}</td>
+								<td>
+								<fmt:formatDate var="dateAchat" pattern="dd/MM/yyyy" value="${videoProjecteur.dateAchat}" />
+								${dateAchat}
+								</td>
 								<td>
 									<div class="dropdown">
 										<button class="btn btn-primary dropdown-toggle" type="button"
