@@ -65,7 +65,6 @@ public class SpringListener {
 		// Initialisation formation
 		Formation f1 = new Formation();
 		f1.setLibelle("Master I");
-		f1.addMatiere(m);
 		Formation f2 = new Formation();
 		f2.setLibelle("Licence Info Dev");
 		System.out.println( daoFormation.save(f1).getId());
@@ -73,7 +72,7 @@ public class SpringListener {
 
 		// Initialisation Salle
 		Salle s1 = new Salle(50, "92 rue des singes", "diddy.kong@banana.com");
-		Salle s2 = new Salle(25, "25 avenue Mouche", "Damien.L@mail.com");
+		Salle s2 = new Salle(25, "25 avenue Mouche", "Damine.L@mail.com");
 		daoSalle.save(s1);
 		daoSalle.save(s2);
 		
@@ -126,5 +125,8 @@ public class SpringListener {
 		daoOrdinateur.save(o1);
 		daoOrdinateur.save(o2);
 
+		// Initialisation Planning
+		//Planning p1 = new Planning(1);
+		//daoPlanning.save(p1);
 	}
 }
