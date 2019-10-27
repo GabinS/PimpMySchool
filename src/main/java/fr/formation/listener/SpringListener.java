@@ -1,5 +1,8 @@
 package fr.formation.listener;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javax.transaction.Transactional;
@@ -17,6 +20,7 @@ import fr.formation.dao.IDAOUniteEnseignement;
 import fr.formation.model.Formation;
 import fr.formation.model.Matiere;
 import fr.formation.model.Planning;
+import fr.formation.model.Ordinateur;
 import fr.formation.model.Salle;
 import fr.formation.model.UniteEnseignement;
 
@@ -72,6 +76,31 @@ public class SpringListener {
 		Date d2 = new Date();
 		Planning p1 = new Planning(1, d1, d2, m2, f2);
 		daoPlanning.save(p1);
+		
+		
+		// Initialisation Ordinateurs
+		
+		
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+		String date1 = "2018-03-17";
+		String date2 = "2019-05-25";
+		
+		Ordinateur o1 = new Ordinateur(
+				"Intel Core i7-3770 3.40 GHz"
+				, "8Go RAM DDR3"
+				, "500Go HDD"
+				, dateFormat.parse(date1)
+				, "DELL OPTIPLEX 7010 SFF - WINDOWS 10");
+		
+		Ordinateur o2 = new Ordinateur(
+				"Intel Core i5-9400F"
+				, "RAM 16Go"
+				, "HDD 1To + SSD 128Go"
+				, dateFormat.parse(date2)
+				, "HP PC Bureau Gamer OMEN Obelisk 875-0183nf");
+
+		daoOrdinateur.save(o1);
+		daoOrdinateur.save(o2);
 
 	}
 }
