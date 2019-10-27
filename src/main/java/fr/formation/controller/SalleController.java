@@ -16,7 +16,6 @@ import fr.formation.dao.IDAOSalle;
 import fr.formation.model.Disponibilite;
 import fr.formation.model.Formation;
 import fr.formation.model.Salle;
-import fr.formation.service.DisponibiliteService;
 import fr.formation.service.FormationService;
 import fr.formation.service.SalleService;
 
@@ -28,9 +27,6 @@ public class SalleController {
 	
 	@Autowired
 	private FormationService serviceFormation;
-	
-	@Autowired
-	private DisponibiliteService serviceDisponibilite;
 	
 	@Autowired
 	private IDAOSalle daoSalle;

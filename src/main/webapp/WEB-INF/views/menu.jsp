@@ -18,7 +18,7 @@
         	</a>
         	<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 	          <a class="dropdown-item" href="/PimpMySchool/salle">Salle</a>
-	          <a class="dropdown-item" href="#">Vidéo projecteur</a>
+	          <a class="dropdown-item" href="/PimpMySchool/videoprojecteur">Vidéo projecteur</a>
 	          <a class="dropdown-item" href="#">Ordinateur</a>
 	        </div>
 	    </ul>
