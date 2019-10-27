@@ -1,9 +1,9 @@
 package fr.formation.controller;
 
 import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 
-import org.hibernate.Hibernate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import fr.formation.model.Disponibilite;
 import fr.formation.model.Ordinateur;
-import fr.formation.model.Salle;
 import fr.formation.service.OrdinateurService;
 
 @Controller
@@ -29,6 +29,7 @@ public class OrdinateurController {
 	public String Ordinateur(Model model) {
 		
 		List<Ordinateur> listOrdinateur = srvOrdinateur.findAll();
+		
 		model.addAttribute("listordinateur", listOrdinateur);
 		
 		return "ressourceMaterielle/ordinateur";
@@ -65,5 +66,11 @@ public class OrdinateurController {
 	public String delete(Model model, @PathVariable int id) {
 		srvOrdinateur.deleteById(id);
 		return "redirect:/ordinateur";
+	}
+	
+	//Reserver
+	@PostMapping("/ordinateur/reserver/{id}")
+	public String reserverOrdinateur(Model model, @PathVariable int id, @PathVariable Date dateDebut, @PathVariable Date dateFin, @PathVariable String libelle) {
+		return "ressourceMaterielle/materiel";
 	}
 }

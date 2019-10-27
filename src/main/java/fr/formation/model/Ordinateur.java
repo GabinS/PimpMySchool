@@ -38,7 +38,7 @@ public class Ordinateur extends RessourceMaterielle{
 
 	@OneToOne(mappedBy = "ordinateur")
 	private Stagiaire stagiaire;
-	
+
 	//Properties
 
 	public String getNom() {
@@ -89,6 +89,8 @@ public class Ordinateur extends RessourceMaterielle{
 	public void setStagiaire(Stagiaire stagiaire) {
 		this.stagiaire = stagiaire;
 	}
+	
+	
 
 	//Constructor
 	public Ordinateur() {}

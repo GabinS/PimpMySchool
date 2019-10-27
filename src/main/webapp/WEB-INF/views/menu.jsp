@@ -19,8 +19,7 @@
         	<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 	          <a class="dropdown-item" href="/PimpMySchool/salle">Salle</a>
 	          <a class="dropdown-item" href="#">Vidéo projecteur</a>
-	          <a class="dropdown-item" href="/PimpMySchool/ordinateur">Ordinateur</a>
-	          <a class="dropdown-item" href="/PimpMySchool/materiel">Gestion</a>
+	          <a class="dropdown-item" href="#">Ordinateur</a>
 	        </div>
 	    </ul>
 	    <ul class="navbar-nav navbar-right">

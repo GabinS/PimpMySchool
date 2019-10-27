@@ -16,7 +16,6 @@
 			<div class="col-md-12">
 				<h2>Ordinateurs</h2>
 
-
 				<table class="table">
 					<thead class="thead-dark">
 						<tr>
@@ -46,6 +45,14 @@
 				</table>
 
 				<a href="/PimpMySchool/ordinateur/ajouter">Ajouter un ordinateur</a>
+				
+				<h4>Réservations</h4>
+				
+				<p>
+				
+				Du à l'impossibilité de récupérer les élements provenant de la table disponibilité, je n'ai pas développé cette partie. Tous les développements que j'ai mis en place autours de la reservation on été supprimés de façon à garantir la bonne tenue du code. 
+				
+				</p>
 			</div>
 		</div>
 	</div>
