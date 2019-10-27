@@ -1,5 +1,8 @@
 package fr.formation.model;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -22,10 +25,10 @@ public class Disponibilite {
 	private int id;
 	
 	@Column(name="DIS_DATEDEB")
-	private Date DateDebut;
+	private Date dateDebut;
 	
 	@Column(name="DIS_DATEFIN")
-	private Date DateFin;
+	private Date dateFin;
 	
 	@ManyToOne
 	@JoinColumn(name="DIS_RM_ID")
@@ -45,19 +48,19 @@ public class Disponibilite {
 	}
 
 	public Date getDateDebut() {
-		return DateDebut;
+		return dateDebut;
 	}
 
 	public void setDateDebut(Date dateDebut) {
-		DateDebut = dateDebut;
+		this.dateDebut = dateDebut;
 	}
 
 	public Date getDateFin() {
-		return DateFin;
+		return dateFin;
 	}
 
 	public void setDateFin(Date dateFin) {
-		DateFin = dateFin;
+		this.dateFin = dateFin;
 	}
 
 	public RessourceMaterielle getRessourceMaterielle() {
@@ -76,15 +79,32 @@ public class Disponibilite {
 		this.formateur = formateur;
 	}
 
-	//Constructor
+	//Constructors
 	public Disponibilite() {}
 	
-	public Disponibilite(int id, Date dateDebut, Date dateFin) {
+	public Disponibilite(Date dateDebut, Date dateFin) {
 		super();
-		this.id = id;
-		DateDebut = dateDebut;
-		DateFin = dateFin;
+		this.dateDebut = dateDebut;
+		this.dateFin = dateFin;
 	}
 	
+	public Disponibilite(String dateDebut, String dateFin) {
+		super();
+		this.dateDebut = StringToDate(dateDebut);
+		this.dateFin = StringToDate(dateFin);
+	}
+	
+	//Methods
+	public Date StringToDate(String s){
+	    Date result = null;
+	    try{
+	        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/mm/yyyy");
+	        result  = dateFormat.parse(s);
+	    }
+	    catch(ParseException e){
+	        e.printStackTrace();
+	    }
+	    return result ;
+	}
 	
 }

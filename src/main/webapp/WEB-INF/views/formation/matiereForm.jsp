@@ -1,4 +1,5 @@
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
 <form method="POST" class="container">
 	<div class="form-group">
@@ -20,13 +21,38 @@
 	  <label for="exampleFormControlTextarea1">Objectifs</label>
 	  <textarea class="form-control" name="objectifs" rows="3">${matiere.objectifs}</textarea>
 	</div>
+		
+	<c:if test="${listUE.size() > 0}">
+		<div class="form-group">
+		  <label for="exampleFormControlTextarea1">Unités d'enseignements associées</label>
+		  	<form:select multiple="true" path="listUE" class="form-control" name="listUniteEnseignement">
+		  		<c:forEach items="${listUE}" var="ue">
+		  			<c:if test="${listUE_matiere.Contains(ue)}">
+						<form:option value="${ue.titre}" itemLabel="${ue.titre}" selected="selected"/>
+		  			</c:if>
+		  			<c:if test="${!listUE_matiere.Contains(ue)}">
+						<form:option value="${ue.titre}" itemLabel="${ue.titre}"/>
+		  			</c:if>
+		  		</c:forEach>
+			</form:select>
+		</div>
+	</c:if>
 	
-	<div class="form-group">
-	  <label for="exampleFormControlTextarea1">Unités d'enseignements associées</label>
-	  <select multiple class="form-control" id="exampleFormControlSelect2" name="listUniteEnseignement">
-
-	  </select>
-	</div>
+	<c:if test="${listFormateur.size() > 0}">
+		<div class="form-group">
+		  <label for="exampleFormControlTextarea1">Formateur de la matière</label>
+		  	<form:select path="listFormateur" class="form-control">
+		  		<c:forEach items="${listFormateur}" var="f">
+		  			<c:if test="${matiere.formateur.id == f.id}">
+		  				<form:option value="${f.prenom} ${f.nom}"  name="formateur" selected="selected"/>
+		  			</c:if>
+		  			<c:if test="${matiere.formateur.id != f.id}">
+		  				<form:option value="${f.prenom} ${f.nom}" name="formateur"/>
+		  			</c:if>
+		  		</c:forEach>		  		
+			</form:select>
+		</div>
+	</c:if>
 	
 	<c:if test="${matiere == null}">
 		<button type="submit" class="btn btn-lg btn-success btn-block mb-2">Enregistrer la matière</button>

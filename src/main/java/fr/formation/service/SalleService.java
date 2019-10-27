@@ -17,7 +17,7 @@ public class SalleService {
 	@Autowired
 	private IDAOSalle daoSalle;
 	
-	public List<Salle> getSalles() {
+	public List<Salle> findAll() {
 		return daoSalle.findAll();
 	}
 	

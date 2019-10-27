@@ -1,4 +1,5 @@
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
 <form method="POST" class="container">
 	<div class="form-group">
@@ -8,11 +9,33 @@
 	<c:if test="${listMatiere.size() > 0}">
 		<div class="form-group">
 		  <label for="exampleFormControlTextarea1">Matières associées</label>
-		  <select multiple class="form-control" id="exampleFormControlSelect2" name="listMatiere">			
-				<c:forEach items="${listMatiere}" var="m">
-				    <option id="${m.id}">${m.titre}</option>
-				</c:forEach>
-		  </select>
+		  	<form:select multiple="true" path="listMatiere" class="form-control">
+		  		<c:forEach items="${listMatiere}" var="m">
+		  			<c:if test="${listMatiere_UE.Contains(m)}">
+						<form:option value="${m.titre}" selected="selected"/>
+		  			</c:if>
+		  			<c:if test="${!listUE_matiere.Contains(ue)}">
+						<form:option value="${m.titre}"/>
+		  			</c:if>
+		  		</c:forEach>
+			</form:select>
+			
+		</div>
+	</c:if>
+	
+	<c:if test="${listFormateur.size() > 0}">
+		<div class="form-group">
+		  <label for="exampleFormControlTextarea1">Formateurs associées</label>
+		  	<form:select multiple="true" path="listFormateur" class="form-control">  		
+	  			<c:forEach items="${listFormateur}" var="f">
+		  			<c:if test="${listFormateur_UE.Contains(f)}">
+						<form:option value="${f.prenom} ${f.nom}" selected="selected"/>
+		  			</c:if>
+		  			<c:if test="${!listUE_matiere.Contains(ue)}">
+						<form:option value="${f.prenom} ${f.nom}"/>
+		  			</c:if>
+		  		</c:forEach>
+			</form:select>
 		</div>
 	</c:if>
 	

@@ -1,5 +1,8 @@
 package fr.formation.controller;
 
+import java.util.List;
+
+import org.hibernate.Hibernate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,7 +13,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import fr.formation.model.Formation;
+import fr.formation.model.Matiere;
 import fr.formation.service.FormationService;
+import fr.formation.service.GestionnaireService;
 import fr.formation.service.MatiereService;
 
 @Controller
@@ -19,27 +24,31 @@ public class FormationController {
 
 	@Autowired
 	private FormationService srvFormation;
-	/*
+	
 	@Autowired
 	private GestionnaireService srvGestionnaire;
-	*/
+	
 	@Autowired
 	private MatiereService srvMatiere;
 	
 	private String list= "listFormation";
 	private String form= "formationForm";
 	
-	private void AddData(Model model) {
+	private void AddData(Model model, int id) {
 		model.addAttribute("listFormation", srvFormation.findAll());
-		//model.addAttribute("listGestionnaire", )
+		model.addAttribute("listGestionnaire", srvGestionnaire.findAll());
 		model.addAttribute("listMatiere", srvMatiere.findAll());
-		model.getClass();
+		
+		if(id > -1) {
+			Formation formation = srvFormation.get(id);
+			model.addAttribute("formation", formation);
+		}
 	}
 	
 	
 	@GetMapping("")
 	public String FormationGet(Model model) { // Affiche la liste des formations
-		this.AddData(model);
+		this.AddData(model, -1);
 		
 		model.addAttribute("title", "Formation");
 		model.addAttribute("list", this.list);
@@ -49,7 +58,7 @@ public class FormationController {
 	
 	@GetMapping("/add")
 	public String CreateFormationGet(Model model) {
-		this.AddData(model);
+		this.AddData(model, -1);
 		
 		model.addAttribute("title", "Nouvelle formation");
 		model.addAttribute("list", this.list);
@@ -58,12 +67,10 @@ public class FormationController {
 	}
 	
 	@GetMapping("/edit/{id}")
-	public String EditFormationGet(Model model, @PathVariable int id) {
+	public String EditFormationGet(Model model, @PathVariable int id) {		
+		this.AddData(model, id);
+		
 		Formation formation = srvFormation.get(id);
-		model.addAttribute("formation", formation);
-		
-		this.AddData(model);
-		
 		model.addAttribute("title", "Edition de la formation " + formation.getLibelle());
 		model.addAttribute("list", this.list);
 		model.addAttribute("form", this.form);

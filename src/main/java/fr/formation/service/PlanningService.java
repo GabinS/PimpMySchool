@@ -1,5 +1,6 @@
 package fr.formation.service;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +13,7 @@ import fr.formation.model.Planning;
 @Service
 public class PlanningService {
 	
-	//@Autowired
+	@Autowired
 	private IDAOPlanning daoPlanning;
 	
 	public PlanningService() {
@@ -27,14 +28,17 @@ public class PlanningService {
 		return daoPlanning.findAll();
 	}
 
+
 	@Transactional
 	public void add(Planning p) {
 		daoPlanning.save(p);
+		
 	}
 
 	@Transactional
 	public void update(Planning p) {
 		daoPlanning.save(p);		
+		System.out.println(p.getDateDebut());
 	}
 	
 	@Transactional

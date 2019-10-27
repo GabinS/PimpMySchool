@@ -23,6 +23,10 @@ public class FormationService {
 		return daoFormation.findById(id);
 	}
 	
+	public Formation getByLibelle(String libelle) {
+		return daoFormation.findByLibelle(libelle);
+	}
+	
 	@Transactional
 	public Formation add(Formation formation) {
 		return daoFormation.save(formation);
