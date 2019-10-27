@@ -56,17 +56,25 @@ public class UniteEnseignementController {
 	@GetMapping("/edit/{id}")
 	public String EditUEGet(Model model, @PathVariable int id) {
 		UniteEnseignement ue = srvUniteEnseignementService.get(id);
-		model.addAttribute("uniteEnseignement", ue);
-		model.addAttribute("listMatiere", srvMatiere.findAll());
-		
-		model.addAttribute("listFormateur", srvFormateur.findAll());
-		
-		model.addAttribute("listUE", srvUniteEnseignementService.findAll());
-		
-		model.addAttribute("title", "Edition de l'Unité d'enseignement " + ue.getTitre());
-		model.addAttribute("list", this.list);
-		model.addAttribute("form", this.form);
-		return "formation/formationTemplate";
+		if (ue != null) {
+			model.addAttribute("uniteEnseignement", ue);
+
+			model.addAttribute("listUE", srvUniteEnseignementService.findAll());
+			model.addAttribute("listMatiere", srvMatiere.findAll());
+			model.addAttribute("listFormateur", srvFormateur.findAll());	
+			
+			// pb de récupération (censé récupérer la liste des matières de l'ue)
+			//model.addAttribute("listMatiere_UE", ue.getListMatiere());
+
+			// pb de récupération (censé récupérer la liste des formateur de l'ue)
+			//model.addAttribute("listFormateur_UE", ue.getListFormateur());					
+			
+			model.addAttribute("title", "Edition de l'Unité d'enseignement " + ue.getTitre());
+			model.addAttribute("list", this.list);
+			model.addAttribute("form", this.form);
+			return "formation/formationTemplate";
+		}
+		return "redirect:/formation/ue";
 	}
 	
 	@GetMapping("/delete/{id}")

@@ -114,7 +114,7 @@ public class Matiere {
 		this.formateur = formateur;
 	}
 
-	public List<UniteEnseignement> getUniteEnseignement() {
+	public List<UniteEnseignement> getListUniteEnseignement() {
 		return listUniteEnseignement;
 	}
 

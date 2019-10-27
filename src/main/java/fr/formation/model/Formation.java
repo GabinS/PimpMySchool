@@ -1,5 +1,6 @@
 package fr.formation.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -78,6 +79,9 @@ public class Formation {
 	}
 
 	public boolean addMatiere(Matiere m) {
+		if(listMatiere == null) {
+			listMatiere = new ArrayList<Matiere>();
+		}
 		if (listMatiere.add(m))
 			return true;
 		return false;

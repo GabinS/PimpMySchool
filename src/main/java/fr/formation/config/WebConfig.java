@@ -25,9 +25,5 @@ public class WebConfig implements WebMvcConfigurer {
 				
 		return viewResolver;		
 	}
-	
-	public void addRessourceHandlers(ResourceHandlerRegistry registry) {
-		registry.addResourceHandler("/assets/**").addResourceLocations("/assets/");
-	}
 
 }
