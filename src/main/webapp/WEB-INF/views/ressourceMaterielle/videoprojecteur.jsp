@@ -1,4 +1,4 @@
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
@@ -14,27 +14,28 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-8">
+				<br />
 				<h2>Gestion des VideoProjecteurs</h2>
 				<table>
 					<thead style="font-weight: bold;">
 						<tr>
-							<td>Résolution</td>
-							<td>Durée de vie de la lampe</td>
-							<td>Type de lampe</td>
-							<td>Date d'achat</td>
+							<td>Nom&nbsp;&nbsp;&nbsp;&nbsp;</td>
+							<td>Résolution&nbsp;&nbsp;&nbsp;</td>
+							<td>Durée de vie de la lampe&nbsp;&nbsp;&nbsp;</td>
+							<td>Type de lampe&nbsp;&nbsp;&nbsp;</td>
+							<td>Date d'achat&nbsp;&nbsp;&nbsp;</td>
 							<td>Actions</td>
 						</tr>
 					</thead>
 					<tbody>
 						<c:forEach items="${listVideoProjecteur}" var="videoProjecteur">
 							<tr>
-								<td>${videoProjecteur.resolution}</td>
-								<td>${videoProjecteur.dureeVieLampe}</td>
-								<td>${videoProjecteur.typeLampe}</td>
-								<td>
-								<fmt:formatDate var="dateAchat" pattern="dd/MM/yyyy" value="${videoProjecteur.dateAchat}" />
-								${dateAchat}
-								</td>
+								<td style="border-left: 1px solid black; padding: 5px;">${videoProjecteur.nom}</td>
+								<td style="border-left: 1px solid black; padding: 5px;">${videoProjecteur.resolution}</td>
+								<td style="border-left: 1px solid black; padding: 5px;">${videoProjecteur.dureeVieLampe}</td>
+								<td style="border-left: 1px solid black; padding: 5px;">${videoProjecteur.typeLampe}</td>
+								<td><fmt:formatDate var="dateAchat" pattern="dd/MM/yyyy"
+										value="${videoProjecteur.dateAchat}" /> ${dateAchat}</td>
 								<td>
 									<div class="dropdown">
 										<button class="btn btn-primary dropdown-toggle" type="button"
