@@ -55,16 +55,22 @@ public class MatiereController {
 	@GetMapping("/edit/{id}")
 	public String EditMatiereGet(Model model, @PathVariable int id) {
 		Matiere matiere = srvMatiere.get(id);
-		model.addAttribute("matiere", matiere);
-		
-		model.addAttribute("listmatiere", srvMatiere.findAll());
-		model.addAttribute("listFormateur", srvFormateur.findAll());
-		model.addAttribute("listUE", srvUniteEnseignementService.findAll());
-		
-		model.addAttribute("title", "Edition de la matière " + matiere.getTitre());		
-		model.addAttribute("list", this.list);
-		model.addAttribute("form", this.form);
-		return "formation/formationTemplate";
+		if (matiere != null) {
+			model.addAttribute("matiere", matiere);
+			
+			model.addAttribute("listmatiere", srvMatiere.findAll());
+			model.addAttribute("listFormateur", srvFormateur.findAll());
+			model.addAttribute("listUE", srvUniteEnseignementService.findAll());
+
+			// pb de récupération (censé récupérer la liste des unités d'enseignement de la matière)
+			//model.addAttribute("listUE_matiere", matiere.getListUniteEnseignement());
+					
+			model.addAttribute("title", "Edition de la matière " + matiere.getTitre());		
+			model.addAttribute("list", this.list);
+			model.addAttribute("form", this.form);
+			return "formation/formationTemplate";
+		}
+		return "redirect:/formation/matiere";		
 	}
 	
 	@GetMapping("/delete/{id}")

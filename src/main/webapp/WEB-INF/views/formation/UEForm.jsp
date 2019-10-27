@@ -10,16 +10,31 @@
 		<div class="form-group">
 		  <label for="exampleFormControlTextarea1">Matières associées</label>
 		  	<form:select multiple="true" path="listMatiere" class="form-control">
-		  		<form:options items="${listMatiere}" itemValue="titre" itemLabel="titre"/>
+		  		<c:forEach items="${listMatiere}" var="m">
+		  			<c:if test="${listMatiere_UE.Contains(m)}">
+						<form:option value="${m.titre}" selected="selected"/>
+		  			</c:if>
+		  			<c:if test="${!listUE_matiere.Contains(ue)}">
+						<form:option value="${m.titre}"/>
+		  			</c:if>
+		  		</c:forEach>
 			</form:select>
+			
 		</div>
 	</c:if>
 	
 	<c:if test="${listFormateur.size() > 0}">
 		<div class="form-group">
 		  <label for="exampleFormControlTextarea1">Formateurs associées</label>
-		  	<form:select multiple="true" path="listFormateur" class="form-control">
-		  		<form:options items="${listFormateur}" itemValue="prenom" itemLabel="prenom"/>
+		  	<form:select multiple="true" path="listFormateur" class="form-control">  		
+	  			<c:forEach items="${listFormateur}" var="f">
+		  			<c:if test="${listFormateur_UE.Contains(f)}">
+						<form:option value="${f.prenom} ${f.nom}" selected="selected"/>
+		  			</c:if>
+		  			<c:if test="${!listUE_matiere.Contains(ue)}">
+						<form:option value="${f.prenom} ${f.nom}"/>
+		  			</c:if>
+		  		</c:forEach>
 			</form:select>
 		</div>
 	</c:if>
