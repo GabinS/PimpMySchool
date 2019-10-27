@@ -29,7 +29,7 @@ public class VideoProjecteurService {
 	 * @param id Identifiant du VidéoProjecteur
 	 * @return
 	 */
-	public VideoProjecteur get(int id) {
+	public VideoProjecteur getById(int id) {
 		return daoVideoProjecteur.findById(id);
 	}
 	
@@ -54,14 +54,10 @@ public class VideoProjecteurService {
 
 	/**
 	 * Mise à jour du VideoProjecteur
-	 * @param videoProjecteur Le nouveau
+	 * @param videoProjecteur Le nouvelle objet videoProjecteur
 	 */
 	@Transactional
 	public void update(VideoProjecteur videoProjecteur) {
-		for(VideoProjecteur vp : daoVideoProjecteur.findAll()) {
-			if(vp.getId() == videoProjecteur.getId()) {
-				vp = videoProjecteur;
-			}
-		}
+		daoVideoProjecteur.save(videoProjecteur);
 	}
 }
