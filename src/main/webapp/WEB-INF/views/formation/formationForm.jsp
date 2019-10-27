@@ -8,20 +8,26 @@
 	</div>
 
 	<div class="form-group">
-		<label for="exampleInputEmail1">Gestionnaire</label> <input
-			type="text" class="form-control" name="gestionnaire"
-			required="required" value="${formation.gestionnaire.nom}">
+		<label for="exampleFormControlSelect1">Gestionnaire</label> <select
+			class="form-control" id="exampleFormControlSelect1">
+			<c:forEach items="${listGestionnaire}" var="g">
+				<option>${g.username}</option>
+			</c:forEach>
+			<!--  <option>Nouveau gestionnaire</option> -->
+		</select>
 	</div>
-
+<
 	<div class="list-group">
 		<label for="exampleInputEmail1">Matières</label>
-		<c:if test="${formation.listMatiere != null}">
-			<c:forEach items="${formation.listMatiere}" var="m">
+
+		<c:if test="${listMatiereFormation.size() > 0}">
+			<c:forEach items="${listMatiereFormation}" var="m">
 				<a
-					class="list-group-item list-group-item-action list-group-item-light">
+					class="list-group-item list-group-item-action list-group-item-light active">
 					${m.titre} </a>
 			</c:forEach>
-		</c:if>
+		</c:if> 
+
 	</div>
 
 
