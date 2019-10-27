@@ -1,6 +1,10 @@
 package fr.formation.listener;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import javax.transaction.Transactional;
 
@@ -11,11 +15,14 @@ import org.springframework.stereotype.Component;
 
 import fr.formation.dao.IDAOFormation;
 import fr.formation.dao.IDAOMatiere;
+import fr.formation.dao.IDAOOrdinateur;
 import fr.formation.dao.IDAOPlanning;
 import fr.formation.dao.IDAOSalle;
 import fr.formation.dao.IDAOUniteEnseignement;
+import fr.formation.model.Disponibilite;
 import fr.formation.model.Formation;
 import fr.formation.model.Matiere;
+import fr.formation.model.Ordinateur;
 import fr.formation.model.Planning;
 import fr.formation.model.Salle;
 import fr.formation.model.UniteEnseignement;
@@ -39,9 +46,12 @@ public class SpringListener {
 	@Autowired
 	private IDAOPlanning daoPlanning;
 	
+	@Autowired
+	private IDAOOrdinateur daoOrdinateur;
+	
 	@EventListener(ContextRefreshedEvent.class)
 	@Transactional
-	public void handleContextStarted() {		
+	public void handleContextStarted() throws ParseException {		
 		// Initialisation matiere
 		Matiere m = new Matiere("JEE", "objectifs JEE", "prerequis JEE", "contenu JEE");
 		Matiere m2 = new Matiere("C#", "objectifs C#", "prerequis C#", "contenu C#");
@@ -72,6 +82,49 @@ public class SpringListener {
 		Date d2 = new Date();
 		Planning p1 = new Planning(1, d1, d2, m2, f2);
 		daoPlanning.save(p1);
+		
+		// Initialisation Ordinateurs
+		
+		
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+		String date1 = "2018-03-17";
+		String date2 = "2019-05-25";
+		
+		String datedispo1 = "1999-03-17";
+		String datedispo2 = "2000-05-25";
+		
+		String datedispo3 = "2001-03-17";
+		String datedispo4 = "2002-05-25";
+		
+		Ordinateur o1 = new Ordinateur(
+				"Intel Core i7-3770 3.40 GHz"
+				, "8Go RAM DDR3"
+				, "500Go HDD"
+				, dateFormat.parse(date1)
+				, "DELL OPTIPLEX 7010 SFF - WINDOWS 10");
+		
+		Ordinateur o2 = new Ordinateur(
+				"Intel Core i5-9400F"
+				, "RAM 16Go"
+				, "HDD 1To + SSD 128Go"
+				, dateFormat.parse(date2)
+				, "HP PC Bureau Gamer OMEN Obelisk 875-0183nf");
+		
+		Disponibilite dispo1 = new Disponibilite(dateFormat.parse(datedispo1), dateFormat.parse(datedispo2));
+		Disponibilite dispo2 = new Disponibilite(dateFormat.parse(datedispo3), dateFormat.parse(datedispo4));
+		
+		List<Disponibilite> listDispo1 = new ArrayList<Disponibilite>();
+		listDispo1.add(dispo1);
+		
+		List<Disponibilite> listDispo2 = new ArrayList<Disponibilite>();
+		listDispo2.add(dispo2);
+		
+		o1.setListDisponibilite(listDispo1);
+		o2.setListDisponibilite(listDispo2);
+
+
+		daoOrdinateur.save(o1);
+		daoOrdinateur.save(o2);
 
 	}
 }
