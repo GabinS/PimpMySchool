@@ -23,7 +23,7 @@
 	        </div>
 	    </ul>
 	    <ul class="navbar-nav navbar-right">
-	      <li><a class="nav-link" href="#"><span class="glyphicon glyphicon-user"></span> Mes informations</a></li>
+	      <li><a class="nav-link" href="/PimpMySchool/infos"><span class="glyphicon glyphicon-user"></span> Mes informations</a></li>
 	      <li><a class="nav-link" href="/logout"><span class="glyphicon glyphicon-log-out"></span> Déconnexion</a></li>
 	    </ul>
 	  </div>
