@@ -3,51 +3,61 @@
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta charset="ISO-8859-1">
-<jsp:include page="../style.jsp" />
-<title>Ajouter un VidéoProjecteur</title>
+	<meta charset="ISO-8859-1">
+	<jsp:include page="../style.jsp" />
+	<title>Ajouter un VideoProjecteur</title>
 </head>
+
 <body>
 	<jsp:include page="../menu.jsp" />
 	<div class="container">
 		<div class="row">
 			<div class="col-md-8">
-				<h2>Créer un nouveau vidéoprojecteur</h2>
+				<h2>Creer un nouveau vidéoprojecteur</h2>
 				<form method="POST">
-					<table>
-						<tr>
-							<td><label for="resolution">Résolution du
-									vidéoprojecteur (ex: 1080p)</label></td>
-							<td><input type="number" name="resolution"
-								value="${videoProjecteur.resolution}" /></td>
-						</tr>
-						<tr>
-							<td><label for="dureeVieLampe">Durée de vie de la
-									lampe en nombre d'heure</label></td>
-							<td><input type="number" name="dureeVieLampe"
-								value="${videoProjecteur.dureeVieLampe}" /></td>
-						</tr>
-						<tr>
-							<td><label for="typeLampe">Type de lampe présente
-									(ex: LED, LASER)</label></td>
-							<td><input type="text" name="typeLampe"
-								value="${videoProjecteur.typeLampe}" /></td>
-						</tr>
-						<tr>
-							<td><label for="dateAchat">Date d'achat</label></td>
-							<td><fmt:formatDate var="dateD" pattern="yyyy-MM-dd"
-									value="${videoProjecteur.dateAchat}" /> <input type="date"
-								name="dateAchat" required="required" value="${dateD}" /></td>
-						</tr>
-						<tr>
-							<td><input type="submit" value="Valider" /></td>
-						</tr>
-					</table>
+					<div class="form-group row">
+						<label for="resolution" class="col-sm-2 col-form-label">Resolution du
+							videoprojecteur
+						</label>
+						<div class="col-sm-10">
+							<input type="number" class="form-control" name="resolution"
+								value="${videoProjecteur.resolution}" placeholder="ex: 1080"/>
+						</div>
+					</div>
+					<div class="form-group row">
+						<label for="dureeVieLampe" class="col-sm-2 col-form-label">Duree de vie de la
+							lampe en nombre d'heure
+						</label>
+						<div class="col-sm-10">
+							<input type="number" class="form-control" name="dureeVieLampe"
+								value="${videoProjecteur.dureeVieLampe}" />
+						</div>
+					</div>
+					<div class="form-group row">
+						<label for="typeLampe" class="col-sm-2 col-form-label">Type de lampe presente
+						</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" name="typeLampe"
+								value="${videoProjecteur.typeLampe}" placeholder="ex: LED, LASER" />
+						</div>
+					</div>
+					<div class="form-group row">
+						<label for="dateAchat" class="col-sm-2 col-form-label">Date d'achat
+						</label>
+						<div class="col-sm-10">
+							<fmt:formatDate var="dateD" pattern="yyyy-MM-dd" value="${videoProjecteur.dateAchat}" />
+							<input type="date" class="form-control" name="dateAchat" required="required"
+								value="${dateD}"/>
+						</div>
+					</div>
+					<button type="submit" class="btn btn-primary">Valider</button>
 				</form>
-				<br /> <a href="/PimpMySchool/videoprojecteur"><button>Annuler</button></a>
+				<br /> <a href="/PimpMySchool/videoprojecteur"><button type="submit" class="btn btn-primary">Annuler</button></a>
 			</div>
 		</div>
 	</div>
 </body>
+
 </html>
