@@ -3,7 +3,6 @@ package fr.formation.listener;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import javax.transaction.Transactional;
@@ -13,6 +12,7 @@ import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
 
+import fr.formation.dao.IDAOFormateur;
 import fr.formation.dao.IDAOFormation;
 import fr.formation.dao.IDAOMatiere;
 import fr.formation.dao.IDAOOrdinateur;
@@ -20,10 +20,10 @@ import fr.formation.dao.IDAOPlanning;
 import fr.formation.dao.IDAOSalle;
 import fr.formation.dao.IDAOUniteEnseignement;
 import fr.formation.model.Disponibilite;
+import fr.formation.model.Formateur;
 import fr.formation.model.Formation;
 import fr.formation.model.Matiere;
 import fr.formation.model.Ordinateur;
-import fr.formation.model.Planning;
 import fr.formation.model.Salle;
 import fr.formation.model.UniteEnseignement;
 
@@ -31,7 +31,7 @@ import fr.formation.model.UniteEnseignement;
 public class SpringListener {
 	
 	@Autowired
-	private IDAOMatiere daoMatiere;  
+	private IDAOMatiere daoMatiere;
   
 	@Autowired
 	private IDAOUniteEnseignement daoUniteEnseignement;
@@ -77,10 +77,10 @@ public class SpringListener {
 		daoSalle.save(s2);
 		
 		// Initialisation Planning	
-		Date d1 = new Date();
-		Date d2 = new Date();
-		Planning p1 = new Planning(1, d1, d2, m2, f2);
-		daoPlanning.save(p1);
+		//Date d1 = new Date();
+		//Date d2 = new Date();
+		//Planning p1 = new Planning(1, d1, d2, m2, f2);
+		//daoPlanning.save(p1);
 		
 		// Initialisation Ordinateurs
 		
@@ -121,12 +121,13 @@ public class SpringListener {
 		o1.setListDisponibilite(listDispo1);
 		o2.setListDisponibilite(listDispo2);
 
-
 		daoOrdinateur.save(o1);
 		daoOrdinateur.save(o2);
-
-		// Initialisation Planning
-		//Planning p1 = new Planning(1);
-		//daoPlanning.save(p1);
+		
+		Formateur fo = new Formateur();
+		fo.setUsername("test");
+		fo.setPassword("test");
+		fo.setPrenom("Jean");
+		
 	}
 }

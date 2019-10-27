@@ -90,7 +90,7 @@ public class UniteEnseignementController {
 	}
 	
 	@PostMapping("/edit/{id}")
-	public String EditUEPost(Model model, @ModelAttribute UniteEnseignement ue, RequestParam listMatiere) {
+	public String EditUEPost(Model model, @ModelAttribute UniteEnseignement ue) {
 		srvUniteEnseignementService.edit(ue);
 		return "redirect:/formation/ue";
 	}
