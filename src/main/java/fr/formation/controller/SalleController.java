@@ -1,5 +1,7 @@
 package fr.formation.controller;
 
+import java.io.Console;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -81,9 +83,34 @@ public class SalleController {
 		List<Formation> listFormation = serviceFormation.findAll();
 		model.addAttribute("listFormation", listFormation);
 		
-		// Problème lors de la récupération de la liste, impossible de la traiter après.
-		//List<Disponibilite> listDisponibilite = s.getListDisponibilite();
+		// Test pour afficher des dates dans le calendrier à partir d'une liste.
+		List<Disponibilite> listDisponibilite = new ArrayList<Disponibilite>();
+		Disponibilite d = new Disponibilite("19/11/2019", "23/11/2019");
+		listDisponibilite.add(d);
+		System.out.println(listDisponibilite);
+		model.addAttribute("listDisponibilite", listDisponibilite);
+		
+		// Test pour récupérer les données de la liste. (lazyload)
+		/*List<Disponibilite> listDisponibilite = s.getListDisponibilite();
+		for (Disponibilite dispo : listDisponibilite) {
+			System.out.println(dispo.getDateDebut());
+			System.out.println(dispo.getDateFin());
+		}*/
 		//model.addAttribute("listDisponibilite", listDisponibilite);
+		
+		// Test pour déterminer le format de date nécessaire.
+		/*List<Disponibilite> listDisponibilite = new ArrayList<Disponibilite>();
+		Disponibilite d1 = new Disponibilite("10/10/2019", "15/10/2019");
+		listDisponibilite.add(d1);
+		Disponibilite d2 = new Disponibilite("20/10/2019", "25/10/2019");
+		listDisponibilite.add(d2);
+		model.addAttribute("listDisponibilite", listDisponibilite);
+		System.out.println("==========================");
+		for (Disponibilite dispo : listDisponibilite) {
+			System.out.println(dispo.getDateDebut());
+			System.out.println(dispo.getDateFin());
+		}
+		System.out.println("==========================");*/
 		
 		return "ressourceMaterielle/reserverSalle";
 	}

@@ -84,8 +84,19 @@ public class Disponibilite {
 	
 	public Disponibilite(Date dateDebut, Date dateFin) {
 		super();
-		this.dateDebut = dateDebut;
-		this.dateFin = dateFin;
+		
+		// Test pour déterminer le format de date nécessaire
+		/*SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+		System.out.println("+++++++++++++++");
+		System.out.println(dateDebut);
+		System.out.println(dateFin);
+		System.out.println("+++++++++++++++");
+		this.dateDebut = StringToDate(dateFormat.format(dateDebut));
+		this.dateFin = StringToDate(dateFormat.format(dateFin));
+		System.out.println("+++++++++++++++");
+		System.out.println(this.dateDebut);
+		System.out.println(this.dateFin);
+		System.out.println("+++++++++++++++");*/
 	}
 	
 	public Disponibilite(String dateDebut, String dateFin) {
