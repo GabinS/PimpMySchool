@@ -18,12 +18,12 @@
         	</a>
         	<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 	          <a class="dropdown-item" href="/PimpMySchool/salle">Salle</a>
-	          <a class="dropdown-item" href="#">Vidéo projecteur</a>
-	          <a class="dropdown-item" href="#">Ordinateur</a>
+	          <a class="dropdown-item" href="/PimpMySchool/videoprojecteur">Vidéo projecteur</a>
+	          <a class="dropdown-item" href="/PimpMySchool/ordinateur">Ordinateur</a>
 	        </div>
 	    </ul>
 	    <ul class="navbar-nav navbar-right">
-	      <li><a class="nav-link" href="#"><span class="glyphicon glyphicon-user"></span> Mes informations</a></li>
+	      <li><a class="nav-link" href="/PimpMySchool/infos"><span class="glyphicon glyphicon-user"></span> Mes informations</a></li>
 	      <li><a class="nav-link" href="/logout"><span class="glyphicon glyphicon-log-out"></span> Déconnexion</a></li>
 	    </ul>
 	  </div>

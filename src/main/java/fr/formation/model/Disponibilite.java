@@ -13,6 +13,10 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Table(name ="disponibilite")
@@ -24,9 +28,13 @@ public class Disponibilite {
 	@Column(name="DIS_ID")
 	private int id;
 	
+	@DateTimeFormat(pattern="yyyy-MM-dd")
+	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name="DIS_DATEDEB")
 	private Date dateDebut;
 	
+	@DateTimeFormat(pattern="yyyy-MM-dd")
+	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name="DIS_DATEFIN")
 	private Date dateFin;
 	

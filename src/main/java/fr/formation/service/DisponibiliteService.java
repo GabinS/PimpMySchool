@@ -2,6 +2,8 @@ package fr.formation.service;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,14 +24,17 @@ public class DisponibiliteService {
 		return daoDisponibilite.findById(id);
 	}
 	
+	@Transactional
 	public Disponibilite add(Disponibilite d) {
 		return daoDisponibilite.save(d);
 	}
 	
+	@Transactional
 	public void delete(int id) {
 		daoDisponibilite.deleteById(id);
 	}
 	
+	@Transactional
 	public void update(Disponibilite d) {
 		daoDisponibilite.save(d);
 	}

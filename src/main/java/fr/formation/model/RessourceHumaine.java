@@ -2,6 +2,8 @@ package fr.formation.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -40,6 +42,10 @@ public class RessourceHumaine{
 	
 	@Column(name = "RH_PASSWORD", nullable = false)
 	private String password;
+	
+	@Enumerated(EnumType.ORDINAL)
+	@Column(name = "RH_TYPEUSER", nullable = false)
+	private TypeUser typeUser;
 	
 	public RessourceHumaine() {
 		
@@ -120,6 +126,14 @@ public class RessourceHumaine{
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public TypeUser getTypeUser() {
+		return typeUser;
+	}
+
+	public void setTypeUser(TypeUser typeUser) {
+		this.typeUser = typeUser;
 	}
 	
 

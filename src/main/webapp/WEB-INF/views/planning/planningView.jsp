@@ -14,7 +14,8 @@
 	
 	<div class="container">	
 		<h1>${title}</h1>
-	
+		
+	<c:if test="${limit > 0}">
 		<table class="table table-bordered">
   				<thead>
     				<tr>
@@ -38,7 +39,7 @@
 						<fmt:formatDate var="dateF" pattern="dd" value="${ planning.dateDebut }" />
 						<td>${dateF}</td>
 						<td style="background-color:${color}">${planning.matiere.getTitre()}</td>
-						<td>${planning.matiere.formateur.nom}</td>
+						<td>${planning.matiere.getFormateur().getNom()}</td>
 					</tr>
 					</c:if>
 					
@@ -52,7 +53,7 @@
 						<fmt:formatDate var="dateF" pattern="dd" value="${ planning.dateDebut }" />
 						<td>${dateF}</td>
 						<td style="background-color:${color}">${planning.matiere.getTitre()}</td>
-						<td>${planning.matiere.formateur.nom}</td>
+						<td>${planning.matiere.getFormateur().getNom()}</td>
 						<!--  date de début à la date de fin -->
 					</tr>
 					<tr>
@@ -63,13 +64,16 @@
 						<fmt:formatDate var="dateF" pattern="dd" value="${ planning.dateFin }" />
 						<td>${dateF}</td>
 						<td style="background-color:${color}">${planning.matiere.getTitre()}</td>
-						<td>${testa}</td>
+						<td>${planning.matiere.getFormateur().getNom()}</td>
 					</tr>
 					</c:if>
 				</c:forEach> 
   				</tbody>
 			</table>
-		
+		</c:if>
+			<c:if test="${limit == 0 }">
+			<div class="alert alert-warning" role="alert">Aucun planning n'a été trouvé.</div>
+			</c:if>
 	</div>
 
 </body>

@@ -7,6 +7,7 @@
 				<div class="form-group">
 	  				<label for="exampleFormControlTextarea1">Matière</label>
       					<select id="matiere" class="form-control" name="matiere.id">
+      					<option>Choisir un matière</option>
       					<c:forEach items="${ matieres }" var="matiere">
         					<option 
         					<c:if test="${ matiere.id == planning.matiere.id }">selected="selected"</c:if>
@@ -18,6 +19,7 @@
 				<div class="form-group">
 	  				<label for="exampleFormControlTextarea1">Formation</label>
       					<select id="formation" class="form-control" name="formation.id">
+      					<option>Choisir une formation</option>
       					<c:forEach items="${ formations }" var="formation">
         					<option 
         					<c:if test="${ formation.id == planning.formation.id }">selected="selected"</c:if>
@@ -36,67 +38,7 @@
 	  				<fmt:formatDate var="dateF" pattern="yyyy-MM-dd" value="${ planning.dateFin }" />
 	  				<input type="date" class="form-control" name="dateFin" required="required" value="${dateF}"/>
 				</div>
-<!-- 				</br>
-				<h3>Affectation du matériel</h3>
-				<div class="form-row">	
-					<div class="form-group col-md-8">			
-	  					<label for="exampleFormControlTextarea1">Ordinateur</label>
-      					<select id="inputState" class="form-control">
-      						<option selected>Pas d'ordinateur</option>
-      					<c:forEach items="${ ordinateurs }" var="matiere">
-        					<option>${ ordinateur.nom }</option>
-        				</c:forEach>
-      					</select>
-      				</div>
-					<div class="form-group col-md-4">			
-	  					<label for="exampleFormControlTextarea1">Quantité</label>
-      					<select id="inputState" class="form-control">
-      						<option selected>0</option>
-        					<option>1</option>
-        					<option>2</option>
-
-      					</select>
-      				</div> 
-					<div class="form-group col-md-8">			
-	  					<label for="exampleFormControlTextarea1">Vidéoprojecteur</label>
-      					<select id="inputState" class="form-control">
-      						<option selected>Pas de vidéoprojecteur</option>
-      					<c:forEach items="${ videoprojecteur }" var="matiere">
-        					<option>${ videoprojecteur.nom }</option>
-        				</c:forEach>
-      					</select>
-      				</div>
-					<div class="form-group col-md-4">			
-	  					<label for="exampleFormControlTextarea1">Quantité</label>
-      					<select id="inputState" class="form-control">
-      						<option selected>0</option>
-        					<option>1</option>
-        					<option>2</option>
-      					</select>
-      				</div>  
-					<div class="form-group col-md-8">			
-	  					<label for="exampleFormControlTextarea1">Salle</label>
-      					<select id="inputState" class="form-control">
-      						<option selected>Pas de salle</option>
-      					<c:forEach items="${ salles }" var="matiere">
-        					<option>${ salle.nom }</option>
-        				</c:forEach>
-      					</select>
-      				</div>
-					<div class="form-group col-md-4">			
-	  					<label for="exampleFormControlTextarea1">Quantité</label>
-      					<select id="inputState" class="form-control">
-      						<option selected>0</option>
-        					<option>1</option>
-        					<option>2</option>
-      					</select>
-      				</div>     				
-				</div>-->
 				
-
-	
-
-	
 	<c:if test="${planning == null}">
 		<button type="submit" class="btn btn-lg btn-success btn-block mb-2">Enregistrer le cours</button>
 	</c:if>

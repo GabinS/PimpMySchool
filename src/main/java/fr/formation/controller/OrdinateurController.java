@@ -1,5 +1,6 @@
 package fr.formation.controller;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import fr.formation.model.Disponibilite;
 import fr.formation.model.Ordinateur;
+import fr.formation.service.DisponibiliteService;
 import fr.formation.service.OrdinateurService;
 
 @Controller
@@ -23,6 +25,9 @@ public class OrdinateurController {
 
 	@Autowired
 	private OrdinateurService srvOrdinateur;
+
+	@Autowired
+	private DisponibiliteService srvDispo;
 	
 	//Basic page
 	@GetMapping("")
@@ -31,6 +36,28 @@ public class OrdinateurController {
 		List<Ordinateur> listOrdinateur = srvOrdinateur.findAll();
 		
 		model.addAttribute("listordinateur", listOrdinateur);
+		
+		for (Ordinateur ordinateur : listOrdinateur) {
+			
+			try {
+				
+				List<Disponibilite> listDispo = ordinateur.getListDisponibilite();
+				
+				for (Disponibilite disponibilite : listDispo) {
+					
+					model.addAttribute("dispo", disponibilite);
+					
+				}
+				
+			} catch (Exception e) {
+				
+				model.addAttribute("error", e);
+				
+			}
+			
+			
+		}
+		
 		
 		return "ressourceMaterielle/ordinateur";
 	}
@@ -64,13 +91,19 @@ public class OrdinateurController {
 	//Delete
 	@GetMapping("/supprimer/{id}")
 	public String delete(Model model, @PathVariable int id) {
+		
+		Ordinateur ordi = srvOrdinateur.get(id);
+		List<Disponibilite> listDispo = ordi.getListDisponibilite();
+		
+		for (int i = 0; i < listDispo.size(); i++) {
+			Disponibilite dispo = listDispo.get(i);
+			srvDispo.delete(dispo.getId());
+		}
+		
+		ordi.setListDisponibilite(new ArrayList<Disponibilite>());
+		
+		srvOrdinateur.save(ordi);
 		srvOrdinateur.deleteById(id);
 		return "redirect:/ordinateur";
-	}
-	
-	//Reserver
-	@PostMapping("/ordinateur/reserver/{id}")
-	public String reserverOrdinateur(Model model, @PathVariable int id, @PathVariable Date dateDebut, @PathVariable Date dateFin, @PathVariable String libelle) {
-		return "ressourceMaterielle/materiel";
-	}
+	}		
 }

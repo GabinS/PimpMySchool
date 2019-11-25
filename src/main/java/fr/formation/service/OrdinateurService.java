@@ -17,12 +17,18 @@ public class OrdinateurService {
 	@Autowired(required = false)
 	private IDAOOrdinateur daoOrdinateur;
 	
+	@Transactional
 	public List<Ordinateur> findAll() {
 		return daoOrdinateur.findAll();
 	}
 	
 	public Ordinateur get(int id) {
 		return daoOrdinateur.findById(id);
+	}
+	
+	@Transactional
+	public Ordinateur save(Ordinateur ordi) {
+		return daoOrdinateur.save(ordi);
 	}
 	
 	@Transactional
@@ -39,4 +45,5 @@ public class OrdinateurService {
 	public void deleteById(int id) {
 		daoOrdinateur.deleteById(id);
 	}
+
 }

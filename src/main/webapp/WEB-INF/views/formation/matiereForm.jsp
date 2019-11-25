@@ -25,32 +25,34 @@
 	<c:if test="${listUE.size() > 0}">
 		<div class="form-group">
 		  <label for="exampleFormControlTextarea1">Unités d'enseignements associées</label>
-		  	<form:select multiple="true" path="listUE" class="form-control" name="listUniteEnseignement">
+		  	<select multiple id="listUniteEnseignement" class="form-control" name="UniteEnseignement.id">
 		  		<c:forEach items="${listUE}" var="ue">
-		  			<c:if test="${listUE_matiere.Contains(ue)}">
-						<form:option value="${ue.titre}" itemLabel="${ue.titre}" selected="selected"/>
-		  			</c:if>
-		  			<c:if test="${!listUE_matiere.Contains(ue)}">
-						<form:option value="${ue.titre}" itemLabel="${ue.titre}"/>
-		  			</c:if>
+		  			<option value="${ue.id}" 
+			  			<c:if test="${listUE_matiere.Contains(ue)}">
+							 selected="selected"
+			  			</c:if>
+		  			>
+		  			${ue.titre}
+		  			</option>
 		  		</c:forEach>
-			</form:select>
+			</select>
 		</div>
 	</c:if>
 	
 	<c:if test="${listFormateur.size() > 0}">
 		<div class="form-group">
 		  <label for="exampleFormControlTextarea1">Formateur de la matière</label>
-		  	<form:select path="listFormateur" class="form-control">
-		  		<c:forEach items="${listFormateur}" var="f">
-		  			<c:if test="${matiere.formateur.id == f.id}">
-		  				<form:option value="${f.prenom} ${f.nom}"  name="formateur" selected="selected"/>
+		  	<select id="formateur" class="form-control" name="formateur.id">
+		  		<c:forEach items="${listFormateur}" var="f">		  		  			
+	  				<option value="${f.id}"
+	  				<c:if test="${matiere.formateur.id == f.id}">
+		  				 selected="selected"		  				 
 		  			</c:if>
-		  			<c:if test="${matiere.formateur.id != f.id}">
-		  				<form:option value="${f.prenom} ${f.nom}" name="formateur"/>
-		  			</c:if>
+		  			>
+		  				${f.prenom} ${f.nom}
+	  				</option>
 		  		</c:forEach>		  		
-			</form:select>
+			</select>
 		</div>
 	</c:if>
 	

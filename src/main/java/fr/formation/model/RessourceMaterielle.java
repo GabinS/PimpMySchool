@@ -17,6 +17,7 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.transaction.Transactional;
 
 @Entity
 @Table(name="ressourceMaterielle")
@@ -42,7 +43,7 @@ public class RessourceMaterielle {
 	)
 	private List<Formation> listFormation;
 	
-	@OneToMany(mappedBy = "ressourceMaterielle", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = "ressourceMaterielle", cascade = CascadeType.ALL, fetch = FetchType.EAGER, orphanRemoval = true)
 	private List<Disponibilite> listDisponibilite;
 	
 	@ManyToMany(mappedBy = "listRessourceMaterielle")
@@ -72,6 +73,7 @@ public class RessourceMaterielle {
 			this.listDisponibilite = new ArrayList<Disponibilite>();
 		}		
 		this.listDisponibilite.add(disponibilite);
+		disponibilite.setRessourceMaterielle(this);
 	}
 	
 	//Constructors
