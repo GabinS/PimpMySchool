@@ -12,7 +12,7 @@
 		<jstl.version>1.2</jstl.version>
 		<hibernate.version>5.4.5.Final</hibernate.version>
 		<h2database.version>1.4.199</h2database.version>
-		<spring.security.version>5.1.6.RELEASE</spring.security.version>
+		<spring.security.version>5.2.10.RELEASE</spring.security.version>
 	</properties>
 	
 	<dependencies>
